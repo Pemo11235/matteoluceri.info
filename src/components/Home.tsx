@@ -10,15 +10,17 @@ interface HomeProps {
     greeting: string
     text: string
   }
+  avatar: string
 }
 function Home({
   homeButton: { button1, button2, button3 },
   homeCopy: { greeting, text },
+  avatar,
 }: HomeProps) {
   return (
     <S.Container>
       <S.ColumnLeft>
-        <S.AvatarStyled className='fade-in' />
+        <S.AvatarStyled className='fade-in' src={avatar} />
       </S.ColumnLeft>
       <S.ColumnRight>
         <S.GreetingTypography variant='h3' component='h1' className='fade-in'>

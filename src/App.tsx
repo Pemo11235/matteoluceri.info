@@ -1,5 +1,6 @@
 import { Header, Home, Footer } from './components'
 import './App.css'
+import Resume from './components/Resume'
 function App() {
   const t = {
     headerCopy: {
@@ -23,14 +24,14 @@ function App() {
       github: 'https://www.github.com/pemo11235/',
     },
     assets: {
-      avatar:
-        'https://github.com/Pemo11235/WebSite/blob/master/assets/download.png',
+      avatar: 'assets/download.png',
     },
   }
   return (
     <div>
       <Header headerCopy={t.headerCopy} headerButton={t.cta} />
-      <Home homeButton={t.cta} homeCopy={t.homeCopy} />
+      {/* <Home homeButton={t.cta} homeCopy={t.homeCopy} avatar={t.assets.avatar} /> */}
+      <Resume />
       <Footer footerCopy={t.footerCopy} />
     </div>
   )
