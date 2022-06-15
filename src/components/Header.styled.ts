@@ -14,7 +14,7 @@ type ExtraProp = {
 
 const Box = styled(BoxBase)`
   flex-grow: 1;
-  width: 100vw;
+  width: 100%;
   margin: 0 0 54px 0;
   background-color: #f3f3f3;
 `

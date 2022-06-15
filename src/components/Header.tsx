@@ -4,9 +4,11 @@ import ComputerIcon from '@mui/icons-material/ComputerOutlined'
 import * as S from './Header.styled'
 
 interface HeaderProps {
-  name: string
-  jobRole: string
-  shortJobRole: string
+  headerCopy: {
+    name: string
+    jobRole: string
+    shortJobRole: string
+  }
   headerButton: {
     button1: string
     button2: string
@@ -14,9 +16,7 @@ interface HeaderProps {
   }
 }
 function Header({
-  name,
-  jobRole,
-  shortJobRole,
+  headerCopy: { name, jobRole, shortJobRole },
   headerButton: { button1, button2, button3 },
 }: HeaderProps) {
   return (
