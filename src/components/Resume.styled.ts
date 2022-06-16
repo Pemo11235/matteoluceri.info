@@ -13,6 +13,7 @@ const Box = styled(BoxBase)`
   flex-direction: column;
   padding: 0 2%;
   margin: 10% 0;
+  overflow: hidden;
 `
 type ExtraProp = {
   component: string

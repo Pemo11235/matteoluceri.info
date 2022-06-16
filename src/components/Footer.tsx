@@ -2,6 +2,7 @@ import * as S from './Footer.styled'
 
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import GitHubIcon from '@mui/icons-material/GitHub'
+import React from 'react'
 
 interface FooterProps {
   footerCopy: {
@@ -14,9 +15,23 @@ interface FooterProps {
 function Footer({
   footerCopy: { phone, email, linkedIn, github },
 }: FooterProps) {
+  const [isOpen, setIsOpen] = React.useState(false)
+
+  const handleArrowClose = () => {
+    setIsOpen(!isOpen)
+  }
+
   return (
-    <S.Footer className='popup'>
+    <S.Footer className={`popup ${isOpen ? 'open' : 'close'}`} $isOpen={isOpen}>
       <S.Divider variant='middle' />
+      <div style={{ width: '100%', height: '2em' }}>
+        <S.ArrowUp
+          strokeWidth={2}
+          className='fade-in'
+          onClick={() => handleArrowClose()}
+          $isOpen={isOpen}
+        />
+      </div>
       <S.Box>
         <S.Column>
           <S.Label>Phone</S.Label>

@@ -12,19 +12,15 @@ type ExtraProp = {
   $shortJobRole?: string
 }
 
-const Box = styled(BoxBase)`
-  flex-grow: 1;
-  width: 100%;
-  margin: 0 0 54px 0;
-  background-color: #f3f3f3;
-`
-
 const AppBar = styled(AppBarBase)`
   background-color: #f3f3f3;
   justify-content: space-between;
   flex-wrap: nowrap;
   flex-direction: row;
   box-shadow: none;
+  position: fixed;
+  right: auto;
+  max-width: 100%;
 `
 
 const NameTypography = styled(Typography)<ExtraProp>`
@@ -125,6 +121,9 @@ const ButtonRow = styled.div`
       transform: translateX(0%);
     }
   }
+  @media (min-width: 0px) and (max-width: 799px) {
+    display: none;
+  }
 `
 const ButtonHeader = styled(Button)`
   color: #232323;
@@ -134,18 +133,17 @@ const ButtonHeader = styled(Button)`
   font-size: 1em;
 
   @media (min-width: 0px) and (max-width: 799px) {
-    visibility: hidden;
+    display: none;
   }
 `
 
 const DividerButtonHeader = styled(Divider)`
   @media (min-width: 0px) and (max-width: 799px) {
-    visibility: hidden;
+    display: none;
   }
 `
 
 export {
-  Box,
   AppBar,
   NameTypography,
   JobRoleTypography,

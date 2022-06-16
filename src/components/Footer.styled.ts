@@ -7,13 +7,29 @@ import {
   IconButton as IconButtonBase,
   Button,
 } from '@mui/material'
-22
-const Footer = styled('footer')`
-  position: relative;
-  bottom: 0;
+import { ArrowDropUp } from '@mui/icons-material'
+interface FooterProps {
+  $isOpen: boolean
+}
+
+const Footer = styled('footer')<FooterProps>`
+  display: flex;
+  flex-direction: column;
+  background-color: #f3f3f3;
+  bottom: -9.5em;
+  position: fixed;
+  z-index: 1100;
+  transition: 1s;
   width: 100%;
-  height: max-content;
-  padding: 5% 0 0 0;
+  height: 12em;
+
+  &.open {
+    transform: translateY(-6em);
+  }
+
+  &.closed {
+    transform: translateY(12em);
+  }
 
   &.popup {
     animation: pop 1s ease-in-out;
@@ -22,22 +38,24 @@ const Footer = styled('footer')`
 
   @keyframes pop {
     0% {
-      transform: translateY(-150%);
+      transform: translateY(-20%);
     }
     100% {
-      transform: translateY(0%);
+      transform: translateY(20vh);
     }
   }
 
-  @media (min-height: 900px) {
-    position: fixed;
+  @media (min-width: 0px) and (max-width: 500px) {
+    &.open {
+      transform: translateY(-12em);
+    }
   }
 `
 const Divider = styled(DividerBase)`
   min-width: 70%;
 `
 const Box = styled(BoxBase)`
-  height: max-content;
+  height: fit-content;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -55,7 +73,7 @@ type ColumnExtraType = {
 
 const Column = styled('div')<ColumnExtraType>`
   display: flex;
-  padding: 2% 0;
+  padding: 1% 0;
   flex-direction: column;
   justify-content: center;
   align-content: center;
@@ -67,6 +85,13 @@ const Column = styled('div')<ColumnExtraType>`
     `@media (min-width: 0px) and (max-width: 599px) {
     display: none;
   }`}
+
+  .visible {
+    opacity: 1;
+  }
+  .hidden {
+    opacity: 0;
+  }
 `
 
 const Label = styled(Typography)`
@@ -93,4 +118,32 @@ const IconButton = styled(Button)`
   color: #232323;
 `
 
-export { Footer, Box, Divider, Column, Label, Value, IconButton }
+const ArrowUp = styled(ArrowDropUp)<FooterProps>`
+  color: #232323;
+  width: 100%;
+  height: 2em;
+  transform: ${(props) => (props.$isOpen ? 'rotate(180deg) ' : '')};
+
+  &.fade-in {
+    opacity: 1;
+    animation-name: fadeIn;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-duration: 2s;
+  }
+
+  :hover {
+    cursor: pointer;
+    animation: none;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+`
+export { Footer, Box, Divider, Column, Label, Value, IconButton, ArrowUp }
