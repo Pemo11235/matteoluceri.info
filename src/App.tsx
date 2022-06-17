@@ -1,5 +1,6 @@
 import { Header, Home, Footer } from './components'
 import Resume from './components/Resume'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 function App() {
   const t = {
     headerCopy: {
@@ -108,12 +109,23 @@ function App() {
     },
   }
   return (
-    <>
+    <Router>
       <Header headerCopy={t.headerCopy} headerButton={t.cta} />
-      {/* <Home homeButton={t.cta} homeCopy={t.homeCopy} avatar={t.assets.avatar} /> */}
-      <Resume resumeCopy={t.resumeCopy} />
+      <Routes>
+        <Route
+          path='/'
+          element={
+            <Home
+              homeButton={t.cta}
+              homeCopy={t.homeCopy}
+              avatar={t.assets.avatar}
+            />
+          }
+        />
+        <Route path='/resume' element={<Resume resumeCopy={t.resumeCopy} />} />
+      </Routes>
       <Footer footerCopy={t.footerCopy} />
-    </>
+    </Router>
   )
 }
 

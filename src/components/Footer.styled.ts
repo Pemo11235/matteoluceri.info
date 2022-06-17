@@ -22,6 +22,7 @@ const Footer = styled('footer')<FooterProps>`
   transition: 1s;
   width: 100%;
   height: 13em;
+  cursor: pointer;
 
   &.open {
     transform: translateY(-6em);

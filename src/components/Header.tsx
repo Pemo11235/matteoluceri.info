@@ -2,6 +2,7 @@ import { Toolbar } from '@mui/material'
 import ComputerIcon from '@mui/icons-material/ComputerOutlined'
 
 import * as S from './Header.styled'
+import { Link } from './shared/Link'
 
 interface HeaderProps {
   headerCopy: {
@@ -22,10 +23,14 @@ function Header({
   return (
     <S.AppBar>
       <Toolbar sx={{ maxWidth: 'fit-content', overflow: 'hidden' }}>
-        <ComputerIcon sx={{ color: 'black', mr: 2 }} />
-        <S.NameTypography variant='h5' component='div' className='moves'>
-          {name}
-        </S.NameTypography>
+        <Link to='/'>
+          <ComputerIcon sx={{ color: 'black', mr: 2 }} />
+        </Link>
+        <Link to='/'>
+          <S.NameTypography variant='h5' component='div' className='moves'>
+            {name}
+          </S.NameTypography>
+        </Link>
         <S.JobRoleTypography
           variant='h6'
           component='div'
@@ -35,7 +40,7 @@ function Header({
         </S.JobRoleTypography>
       </Toolbar>
       <S.ButtonRow className='moves'>
-        <S.ButtonHeader variant='text' href='/'>
+        <S.ButtonHeader variant='text' href={`/${button1}`}>
           {button1}
         </S.ButtonHeader>
         <S.DividerButtonHeader
@@ -43,7 +48,7 @@ function Header({
           flexItem
           variant='middle'
         />
-        <S.ButtonHeader variant='text' href='/'>
+        <S.ButtonHeader variant='text' href={`/${button2}`}>
           {button2}
         </S.ButtonHeader>
         <S.DividerButtonHeader
@@ -51,7 +56,7 @@ function Header({
           flexItem
           variant='middle'
         />
-        <S.ButtonHeader variant='text' href='/'>
+        <S.ButtonHeader variant='text' href={`/${button3}`}>
           {button3}
         </S.ButtonHeader>
       </S.ButtonRow>

@@ -1,3 +1,4 @@
+import { Link } from './shared/Link'
 import * as S from './Home.styled'
 
 interface HomeProps {
@@ -30,27 +31,33 @@ function Home({
           {text}
         </S.TextTypography>
         <S.Row>
-          <S.ButtonCircle
-            variant='contained'
-            sx={{ backgroundColor: '#EEA302' }}
-            className='fade-in'
-            $animationDuration={2}>
-            {button1}
-          </S.ButtonCircle>
-          <S.ButtonCircle
-            variant='contained'
-            sx={{ backgroundColor: '#FF3B25' }}
-            className='fade-in'
-            $animationDuration={2.5}>
-            {button2}
-          </S.ButtonCircle>
-          <S.ButtonCircle
-            variant='contained'
-            sx={{ backgroundColor: '#80D8DA' }}
-            className='fade-in'
-            $animationDuration={3}>
-            {button3}
-          </S.ButtonCircle>
+          <Link to={`/${button1}`}>
+            <S.ButtonCircle
+              variant='contained'
+              sx={{ backgroundColor: '#EEA302' }}
+              className='fade-in'
+              $animationDuration={2}>
+              {button1}
+            </S.ButtonCircle>
+          </Link>
+          <Link to={`/${button2}`}>
+            <S.ButtonCircle
+              variant='contained'
+              sx={{ backgroundColor: '#FF3B25' }}
+              className='fade-in'
+              $animationDuration={2.5}>
+              {button2}
+            </S.ButtonCircle>
+          </Link>
+          <Link to={`/${button3}`}>
+            <S.ButtonCircle
+              variant='contained'
+              sx={{ backgroundColor: '#80D8DA' }}
+              className='fade-in'
+              $animationDuration={3}>
+              {button3}
+            </S.ButtonCircle>
+          </Link>
         </S.Row>
       </S.ColumnRight>
     </S.Container>

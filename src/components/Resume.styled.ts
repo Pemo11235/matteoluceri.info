@@ -5,6 +5,7 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
+  Button,
 } from '@mui/material'
 import styled from 'styled-components'
 
@@ -221,6 +222,32 @@ const Description = styled(Typography)<ExtraProp>`
     line-height: 0.8;
   }
 `
+
+const TitleRow = styled(Container)`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+`
+
+const DownloadButton = styled(Button)`
+  font-family: monospace;
+  color: #232323;
+  padding: 5px 10px 0 10px;
+  background-color: #e0e0e0;
+  border-radius: 20px;
+  border: 1px solid #232323;
+  font-weight: 700;
+  font-size: 0.7rem;
+  width: max-content;
+
+  &:hover {
+    background-color: white;
+  }
+`
+
 const AccordionSummaryStyled = styled(AccordionSummary)`
   background-color: #f3f3f3;
   font-family: monospace;
@@ -265,6 +292,8 @@ export {
   InfoTitle,
   Company,
   Description,
+  DownloadButton,
+  TitleRow,
   AccordionDescription,
   AccordionSummaryTypo,
   AccordionSummaryStyled,

@@ -22,7 +22,10 @@ function Footer({
   }
 
   return (
-    <S.Footer className={`popup ${isOpen ? 'open' : 'close'}`} $isOpen={isOpen}>
+    <S.Footer
+      className={`popup ${isOpen ? 'open' : 'close'}`}
+      $isOpen={isOpen}
+      onClick={() => handleArrowClose()}>
       <S.Divider variant='middle' />
       <div style={{ width: '100%', height: '2em' }}>
         <S.ArrowUp

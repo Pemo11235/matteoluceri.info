@@ -1,5 +1,7 @@
+import { ArrowDownward } from '@mui/icons-material'
 import React from 'react'
 import * as S from './Resume.styled'
+import { Link } from './shared/Link'
 interface ResumeProps {
   resumeCopy: {
     title: string
@@ -31,9 +33,26 @@ function Resume({
   const id = React.useId()
   return (
     <S.Box>
-      <S.Title variant='h3' component='h1' className='moves'>
-        {title}
-      </S.Title>
+      <S.TitleRow>
+        <S.Title variant='h3' component='h1' className='moves'>
+          {title}
+        </S.Title>
+        <Link
+          to={'/public/files/CV_Matteo_Luceri-1.pdf'}
+          target='_blank'
+          download>
+          <S.DownloadButton variant='contained'>
+            Download PDF
+            <ArrowDownward
+              style={{
+                width: '0.7em',
+                height: '0.7em',
+                padding: 0,
+              }}
+            />
+          </S.DownloadButton>
+        </Link>
+      </S.TitleRow>
       <S.ResumeSection>
         <S.LeftSection className='moves'>
           <S.SectionTitle variant='h5' component='h2'>
