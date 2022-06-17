@@ -98,7 +98,6 @@ type ExtraProp = {
   component: string
 }
 const GreetingTypography = styled(Typography)<ExtraProp>`
-  font-family: Monospace;
   font-weight: 700;
   letter-spacing: 0.2em;
 
@@ -120,8 +119,6 @@ const GreetingTypography = styled(Typography)<ExtraProp>`
   }
 `
 const TextTypography = styled(Typography)<ExtraProp>`
-  font-family: Monospace;
-
   &.fade-in {
     opacity: 1;
     animation-name: fadeIn;

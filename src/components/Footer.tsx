@@ -3,6 +3,7 @@ import * as S from './Footer.styled'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import React from 'react'
+import { Typography } from '@mui/material'
 
 interface FooterProps {
   footerCopy: {
@@ -26,7 +27,12 @@ function Footer({
       className={`popup ${isOpen ? 'open' : 'close'}`}
       $isOpen={isOpen}
       onClick={() => handleArrowClose()}>
-      <S.Divider variant='middle' />
+      <S.Divider variant='middle'>
+        <Typography variant='caption' sx={{ backgroundColor: 'transparent' }}>
+          {' '}
+          INFO
+        </Typography>
+      </S.Divider>
       <div style={{ width: '100%', height: '2em' }}>
         <S.ArrowUp
           strokeWidth={2}

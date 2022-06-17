@@ -7,6 +7,7 @@ interface ResumeProps {
     title: string
     section1: Section
     section2: Section
+    section3: Section
   }
 }
 
@@ -28,6 +29,7 @@ function Resume({
     title,
     section1: { title: sectionTitle, items: sectionItems },
     section2: { title: sectionTitle2, items: sectionItems2 },
+    section3: { title: sectionTitle3, items: sectionItems3 },
   },
 }: ResumeProps) {
   const id = React.useId()
@@ -96,6 +98,26 @@ function Resume({
           )}
         </S.RightSection>
       </S.ResumeSection>
+      <S.ResumeSection>
+        <S.LeftSection className='moves'>
+          <S.SectionTitle variant='h5' component='h2'>
+            {sectionTitle3}
+          </S.SectionTitle>
+        </S.LeftSection>
+        <S.RightSection>
+          {sectionItems3.map(
+            ({ period: { start, end }, jobTitle, company, description }) => (
+              <SectionItem
+                key={`section-${id}-${company}-${jobTitle}`}
+                period={{ start, end }}
+                jobTitle={jobTitle}
+                company={company}
+                description={description}
+              />
+            )
+          )}
+        </S.RightSection>
+      </S.ResumeSection>
     </S.Box>
   )
 }
@@ -109,7 +131,8 @@ const SectionItem = ({
   <S.RightSectionItem>
     <S.SubSectionRow className='moves'>
       <S.Period variant='body1' component='div'>
-        {period.start} -{period.start.length > 5 ? <br /> : '  '}
+        {period.start} {period.start !== '' ? '-' : '‣'}
+        {period.start.length > 5 ? <br /> : '  '}
         {period.end}
       </S.Period>
     </S.SubSectionRow>

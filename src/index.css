@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300;400;500;600;700&display=swap');
+
 body {
   position: relative;
   background-color: #f3f3f3;
@@ -9,7 +11,8 @@ body {
   padding: 0;
   min-height: 100vh;
   min-width: 90vw;
-  font-family: monospace;
+  font-family: 'Overpass Mono', monospace;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -23,5 +26,5 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    '';
 }

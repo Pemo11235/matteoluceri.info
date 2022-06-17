@@ -17,7 +17,6 @@ const AppBar = styled(AppBarBase)`
   justify-content: space-between;
   flex-wrap: nowrap;
   flex-direction: row;
-  box-shadow: none;
   position: fixed;
   right: auto;
   max-width: 100%;
@@ -26,11 +25,6 @@ const AppBar = styled(AppBarBase)`
 const NameTypography = styled(Typography)<ExtraProp>`
   color: #232323;
   font-weight: 700;
-  font-family: Monospace;
-  letter-spacing: 0.1em;
-  padding: 10px 0 0 0;
-  margin-block-start: 0;
-  margin-block-end: 0;
   word-wrap: never;
   white-space: nowrap;
 
@@ -58,9 +52,6 @@ const NameTypography = styled(Typography)<ExtraProp>`
 const JobRoleTypography = styled(Typography)<ExtraProp>`
   color: #232323;
   font-weight: 400;
-  font-family: Monospace;
-  letter-spacing: 0.1em;
-  padding: 10px 0 0 0;
   margin-block-start: 0;
   margin-block-end: 0;
   margin-left: 10px;
@@ -76,7 +67,7 @@ const JobRoleTypography = styled(Typography)<ExtraProp>`
     :before {
       visibility: visible;
       content: ' | ${(props) => props.$shortJobRole}';
-      font-size: 0.8em;
+      font-size: 0.7em;
     }
   }
   @media (min-width: 500px) and (max-width: 800px) {
@@ -104,7 +95,6 @@ const JobRoleTypography = styled(Typography)<ExtraProp>`
 const ButtonRow = styled.div`
   display: flex;
   flex-direction: row;
-  padding: '10px 50px 0 0';
 
   &.moves {
     animation-name: move;
@@ -128,8 +118,7 @@ const ButtonRow = styled.div`
 const ButtonHeader = styled(Button)`
   color: #232323;
   font-weight: 400;
-  font-family: Monospace;
-  letter-spacing: 0.1em;
+
   font-size: 1em;
 
   @media (min-width: 0px) and (max-width: 799px) {

@@ -53,7 +53,7 @@ const Footer = styled('footer')<FooterProps>`
   }
 `
 const Divider = styled(DividerBase)`
-  min-width: 70%;
+  background-color: transparent;
 `
 type ExtraBoxProps = {
   $isOpen: boolean
@@ -102,11 +102,11 @@ const Column = styled('div')<ColumnExtraType>`
 `
 
 const Label = styled(Typography)`
-  font-size: 1rem;
+  font-size: 1rem;</S.Divider>
   font-weight: bold;
   color: #232323;
   text-align: left;
-  font-family: monospace;
+
   padding: 10px 0 0 0;
 `
 const Value = styled(Typography)`
@@ -114,7 +114,7 @@ const Value = styled(Typography)`
   font-weight: 400;
   color: #232323;
   text-align: left;
-  font-family: monospace;
+
   line-height: 1;
 `
 

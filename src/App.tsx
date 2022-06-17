@@ -15,7 +15,7 @@ function App() {
     },
     homeCopy: {
       greeting: 'Hello World!',
-      text: "I'm Matteo Luceri, a Front-end Developer. And this thext is gonna be longer that wha it is now.",
+      text: "My name is Matteo Luceri I'm a Front End Engineer based in Ravenna ☀️. I describe myself as a passionate developer who loves coding 💻  and creating things. I'm currently working as a Front-End Developer at Innoteam where I work as front-end consultant. I'm also graduate in Computer Science. 🎓",
     },
     footerCopy: {
       phone: '+39 340 73 67 218',
@@ -100,6 +100,31 @@ function App() {
             company: 'I.I.S.S. ”Luigi Einaudi” - Manduria',
             description:
               'Focus on: Programming, Law and Economics. Programmer-Accountant Diploma',
+          },
+        ],
+      },
+      section3: {
+        title: 'Skills',
+        items: [
+          {
+            period: {
+              start: '',
+              end: '',
+            },
+            jobTitle: 'Hard Skills',
+            company: '',
+            description:
+              'Javascript, Typescript, React, Next.js, React Native, Storybook, Chromatic, Redux, Cypress, Jest, StyledComponents, Webpack, Nodejs, Vim, Git, Mac, Linux, Windows, Latex, Android, Java, MATLAB',
+          },
+          {
+            period: {
+              start: '',
+              end: '',
+            },
+            jobTitle: 'Clifton Strength',
+            company: '',
+            description:
+              'Intellection, Learner, Input, Restorative, Connectedness',
           },
         ],
       },

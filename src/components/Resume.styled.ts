@@ -26,7 +26,6 @@ type ExtraProp = {
   component: string
 }
 const Title = styled(Typography)<ExtraProp>`
-  font-family: monospace;
   font-weight: 700;
   text-align: left;
   width: 100%;
@@ -99,7 +98,6 @@ const RightSection = styled(LeftSection)`
 `
 
 const SectionTitle = styled(Typography)<ExtraProp>`
-  font-family: monospace;
   font-weight: 700;
   width: 100%;
   margin: 0;
@@ -111,7 +109,7 @@ const SectionTitle = styled(Typography)<ExtraProp>`
   @media (max-width: 499px) {
     writing-mode: vertical-lr;
     text-orientation: upright;
-    font-size: 1rem;
+    line-height: 1;
   }
 `
 
@@ -170,7 +168,6 @@ const SubSectionColumn = styled(SubSectionRow)`
 `
 
 const Period = styled(Typography)<ExtraProp>`
-  font-family: monospace;
   font-weight: 400;
   letter-spacing: -0.05em;
   font-size: 0.9rem;
@@ -183,7 +180,6 @@ type InfoTitleProp = {
   component: string
 }
 const InfoTitle = styled(Typography)<InfoTitleProp>`
-  font-family: monospace;
   font-weight: 700;
   width: 100%;
   justify-content: space-between;
@@ -199,15 +195,13 @@ const InfoTitle = styled(Typography)<InfoTitleProp>`
 `
 
 const Company = styled(Typography)<ExtraProp>`
-  font-family: monospace;
   font-weight: 200;
-  letter-spacing: -0.15em;
+  letter-spacing: -0.12em;
   @media (max-width: 1100px) {
     font-size: 0.8rem;
   }
 `
 const Description = styled(Typography)<ExtraProp>`
-  font-family: monospace;
   font-weight: 200;
   text-align: left;
   padding: 10px 0 0 10px;
@@ -219,7 +213,7 @@ const Description = styled(Typography)<ExtraProp>`
   @media (max-width: 500px) {
     font-size: 0.9rem;
     width: fit-content;
-    line-height: 0.8;
+    letter-spacing: -0.05em;
   }
 `
 
@@ -233,7 +227,6 @@ const TitleRow = styled(Container)`
 `
 
 const DownloadButton = styled(Button)`
-  font-family: monospace;
   color: #232323;
   padding: 5px 10px 0 10px;
   background-color: #e0e0e0;
@@ -250,19 +243,18 @@ const DownloadButton = styled(Button)`
 
 const AccordionSummaryStyled = styled(AccordionSummary)`
   background-color: #f3f3f3;
-  font-family: monospace;
+
   font-weight: 700;
   margin: 0;
   padding: 0;
 `
 const AccordionDetailsStyled = styled(AccordionDetails)`
   background-color: #f3f3f3;
-  font-family: monospace;
+
   font-weight: 400;
 `
 
 const AccordionSummaryTypo = styled(Typography)`
-  font-family: monospace;
   padding: 10px 0 0 0;
   margin: 0;
 `
