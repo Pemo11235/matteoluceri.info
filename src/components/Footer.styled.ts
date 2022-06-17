@@ -21,7 +21,7 @@ const Footer = styled('footer')<FooterProps>`
   z-index: 1100;
   transition: 1s;
   width: 100%;
-  height: 12em;
+  height: 13em;
 
   &.open {
     transform: translateY(-6em);
@@ -38,10 +38,10 @@ const Footer = styled('footer')<FooterProps>`
 
   @keyframes pop {
     0% {
-      transform: translateY(-20%);
+      transform: translateY(-6em);
     }
     100% {
-      transform: translateY(20vh);
+      transform: translateY(0);
     }
   }
 
@@ -54,12 +54,18 @@ const Footer = styled('footer')<FooterProps>`
 const Divider = styled(DividerBase)`
   min-width: 70%;
 `
-const Box = styled(BoxBase)`
+type ExtraBoxProps = {
+  $isOpen: boolean
+}
+
+const Box = styled(BoxBase)<ExtraBoxProps>`
+  background-color: #f3f3f3;
   height: fit-content;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  ${({ $isOpen }) => ($isOpen ? `opacity: 1;` : `opacity: 0;`)}
 
   @media (min-width: 0px) and (max-width: 500px) {
     flex-direction: column;

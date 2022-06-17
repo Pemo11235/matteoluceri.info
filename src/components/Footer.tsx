@@ -32,7 +32,7 @@ function Footer({
           $isOpen={isOpen}
         />
       </div>
-      <S.Box>
+      <S.Box $isOpen={isOpen}>
         <S.Column>
           <S.Label>Phone</S.Label>
           <S.Value>{phone}</S.Value>

@@ -8,7 +8,7 @@ import {
 
 const Container = styled(ContainerBase)`
   min-width: 100%;
-  height: 80%;
+  min-height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;

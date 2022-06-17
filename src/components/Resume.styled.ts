@@ -11,9 +11,15 @@ import styled from 'styled-components'
 const Box = styled(BoxBase)`
   display: flex;
   flex-direction: column;
-  padding: 0 2%;
+  padding: 0 5%;
   margin: 10% 0;
   overflow: hidden;
+  align-items: center;
+  width: 90%;
+
+  @media (max-width: 500px) {
+    padding: 0 0 0 5%;
+  }
 `
 type ExtraProp = {
   component: string
@@ -21,16 +27,35 @@ type ExtraProp = {
 const Title = styled(Typography)<ExtraProp>`
   font-family: monospace;
   font-weight: 700;
+  text-align: left;
+  width: 100%;
 
   @media (max-width: 500px) {
     font-size: 1.5rem;
+  }
+
+  &.moves {
+    animation-name: move;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1s;
+  }
+
+  @keyframes move {
+    0% {
+      transform: translateX(+100%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
   }
 `
 const ResumeSection = styled(Container)`
   display: flex;
   flex-direction: row;
   padding: 0;
-  margin: 5% 0;
+  margin: 3% 0;
+  width: 100%;
 `
 
 const LeftSection = styled(Container)`
@@ -38,14 +63,38 @@ const LeftSection = styled(Container)`
   flex-direction: column;
   width: 30%;
   margin: 0;
+  padding: 0;
+  border-right: 1px solid #e0e0e0;
 
-  @media (max-width: 699px) {
+  @media (max-width: 799px) {
     width: fit-content;
+    padding: 0;
+  }
+
+  &.moves {
+    animation-name: move;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1.2s;
+  }
+
+  @keyframes move {
+    0% {
+      transform: translateX(+200%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
   }
 `
 
 const RightSection = styled(LeftSection)`
-  width: max-content;
+  width: 70%;
+
+  @media (max-width: 799px) {
+    width: 100%;
+    border-right: none;
+  }
 `
 
 const SectionTitle = styled(Typography)<ExtraProp>`
@@ -54,13 +103,14 @@ const SectionTitle = styled(Typography)<ExtraProp>`
   width: 100%;
   margin: 0;
 
-  @media (min-width: 0px) and (max-width: 799px) {
+  @media (min-width: 500px) and (max-width: 799px) {
     writing-mode: vertical-lr;
     text-orientation: upright;
-
-    @media (max-width: 500px) {
-      font-size: 1.2rem;
-    }
+  }
+  @media (max-width: 499px) {
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    font-size: 1rem;
   }
 `
 
@@ -68,41 +118,61 @@ const RightSectionItem = styled(Container)`
   display: flex;
   flex-direction: row;
   margin: 0;
-  border-left: 1px solid #e0e0e0;
 
   @media (max-width: 500px) {
     flex-direction: column;
     border-left: none;
-    border-bottom: 1px solid #e0e0e0;
-    max-width: 70%;
+    width: 100%;
+    box-shadow: inset 0px -42px 50px -30px rgba(0, 0, 0, 0.06);
+    padding: 1em 0 0 1em;
   }
 `
 const SubSectionRow = styled(Container)`
   display: flex;
   flex-direction: row;
   height: 100%;
-  justify-content: flex-end;
-  max-width: 30%;
+  justify-content: flex-start;
+  width: 30%;
+  min-width: 100px;
   padding: 0;
   margin: 0 40px 0 0;
 
   @media (max-width: 500px) {
-    max-width: 100%;
+    width: 100%;
     justify-content: flex-start;
+  }
+
+  &.moves {
+    animation-name: move;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1.2s;
+  }
+
+  @keyframes move {
+    0% {
+      transform: translateX(+200%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
   }
 `
 const SubSectionColumn = styled(SubSectionRow)`
   flex-direction: column;
-  max-width: 70%;
+  width: 100%;
+  max-width: 100%;
 
   @media (max-width: 500px) {
-    max-width: 100%;
+    max-width: fit-content;
   }
 `
 
 const Period = styled(Typography)<ExtraProp>`
   font-family: monospace;
   font-weight: 400;
+  letter-spacing: -0.05em;
+  font-size: 0.9rem;
 
   @media (max-width: 500px) {
     font-size: 0.7rem;
@@ -110,50 +180,45 @@ const Period = styled(Typography)<ExtraProp>`
 `
 type InfoTitleProp = {
   component: string
-  $company: string
 }
 const InfoTitle = styled(Typography)<InfoTitleProp>`
   font-family: monospace;
   font-weight: 700;
   width: 100%;
   justify-content: space-between;
-  white-space: nowrap;
 
-  :after {
-    color: #232323;
-    content: '${(props) => props.$company}';
-    font-weight: 200;
-    white-space: nowrap;
-    margin: 10px;
-    padding: 0 10px;
-  }
-
-  @media (min-width: 501px) and (max-width: 1100px) {
+  @media (max-width: 1100px) {
     font-size: 1rem;
-    :after {
-      white-space: normal;
-      font-size: 0.8em;
-    }
   }
 
   @media (max-width: 500px) {
-    font-size: 1rem;
-    :after {
-      display: none;
-    }
+    letter-spacing: -0.05em;
+    white-space: normal;
+  }
+`
+
+const Company = styled(Typography)<ExtraProp>`
+  font-family: monospace;
+  font-weight: 200;
+  letter-spacing: -0.15em;
+  @media (max-width: 1100px) {
+    font-size: 0.8rem;
   }
 `
 const Description = styled(Typography)<ExtraProp>`
   font-family: monospace;
-  font-weight: 400;
+  font-weight: 200;
   text-align: left;
   padding: 10px 0 0 10px;
   border-left: 1px solid #e0e0e0;
   width: 100%;
   margin: 0 0 10px 0;
+  line-height: 0.9;
 
   @media (max-width: 500px) {
-    display: none;
+    font-size: 0.9rem;
+    width: fit-content;
+    line-height: 0.8;
   }
 `
 const AccordionSummaryStyled = styled(AccordionSummary)`
@@ -198,6 +263,7 @@ export {
   SubSectionColumn,
   Period,
   InfoTitle,
+  Company,
   Description,
   AccordionDescription,
   AccordionSummaryTypo,

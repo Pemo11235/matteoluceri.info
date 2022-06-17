@@ -1,44 +1,17 @@
-import { ArrowRight, ExpandMoreOutlined } from '@mui/icons-material'
-import { AccordionDetails, AccordionSummary, Typography } from '@mui/material'
+import React from 'react'
 import * as S from './Resume.styled'
-
-function Resume() {
-  return (
-    <S.Box>
-      <S.Title variant='h3' component='h1'>
-        Resume
-      </S.Title>
-      <S.ResumeSection>
-        <S.LeftSection>
-          <S.SectionTitle variant='h5' component='h2'>
-            Work Experience
-          </S.SectionTitle>
-        </S.LeftSection>
-        <S.RightSection>
-          <SectionItem
-            period={{ start: '2019', end: 'Present' }}
-            jobTitle='Front-end Developer'
-            company='Center for Digital Innovation'
-            description='I worked on a team of developers to build a new website for the Center for Digital Innovation. I spearheaded the development of the website, oversaw the development of the front-end, oversaw the development of the back-end, and oversaw the development of the database.'
-          />
-          <SectionItem
-            period={{ start: '2019', end: 'Present' }}
-            jobTitle='Front-end Developer'
-            company='Center for Digital Innovation'
-            description='I worked on a team of developers to build a new website for the Center for Digital Innovation. I spearheaded the development of the website, oversaw the development of the front-end, oversaw the development of the back-end, and oversaw the development of the database.'
-          />
-          <SectionItem
-            period={{ start: '2019', end: 'Present' }}
-            jobTitle='Front-end Developer'
-            company='Center for Digital Innovation'
-            description='I worked on a team of developers to build a new website for the Center for Digital Innovation. I spearheaded the development of the website, oversaw the development of the front-end, oversaw the development of the back-end, and oversaw the development of the database.'
-          />
-        </S.RightSection>
-      </S.ResumeSection>
-    </S.Box>
-  )
+interface ResumeProps {
+  resumeCopy: {
+    title: string
+    section1: Section
+    section2: Section
+  }
 }
 
+interface Section {
+  title: string
+  items: SectionItemProps[]
+}
 interface SectionItemProps {
   period: {
     start: string
@@ -48,6 +21,66 @@ interface SectionItemProps {
   company: string
   description: string
 }
+function Resume({
+  resumeCopy: {
+    title,
+    section1: { title: sectionTitle, items: sectionItems },
+    section2: { title: sectionTitle2, items: sectionItems2 },
+  },
+}: ResumeProps) {
+  const id = React.useId()
+  return (
+    <S.Box>
+      <S.Title variant='h3' component='h1' className='moves'>
+        {title}
+      </S.Title>
+      <S.ResumeSection>
+        <S.LeftSection className='moves'>
+          <S.SectionTitle variant='h5' component='h2'>
+            {sectionTitle}
+          </S.SectionTitle>
+        </S.LeftSection>
+        <S.RightSection>
+          {sectionItems.map(
+            (
+              { period: { start, end }, jobTitle, company, description },
+              index
+            ) => (
+              <SectionItem
+                key={`section-${id}-${index}-${jobTitle}`}
+                period={{ start, end }}
+                jobTitle={jobTitle}
+                company={company}
+                description={description}
+              />
+            )
+          )}
+        </S.RightSection>
+      </S.ResumeSection>
+      <S.ResumeSection>
+        <S.LeftSection className='moves'>
+          <S.SectionTitle variant='h5' component='h2'>
+            {sectionTitle2}
+          </S.SectionTitle>
+        </S.LeftSection>
+        <S.RightSection>
+          {sectionItems2.map(
+            ({ period: { start, end }, jobTitle, company, description }) => (
+              <SectionItem
+                key={`section-${id}-${company}-${jobTitle}`}
+                period={{ start, end }}
+                jobTitle={jobTitle}
+                company={company}
+                description={description}
+              />
+            )
+          )}
+        </S.RightSection>
+      </S.ResumeSection>
+    </S.Box>
+  )
+}
+
 const SectionItem = ({
   period,
   jobTitle,
@@ -55,26 +88,22 @@ const SectionItem = ({
   description,
 }: SectionItemProps) => (
   <S.RightSectionItem>
-    <S.SubSectionRow>
+    <S.SubSectionRow className='moves'>
       <S.Period variant='body1' component='div'>
-        {period.start} - {period.end}
+        {period.start} -{period.start.length > 5 ? <br /> : '  '}
+        {period.end}
       </S.Period>
     </S.SubSectionRow>
-    <S.SubSectionColumn>
-      <S.InfoTitle variant='body1' component='h3' $company={company}>
+    <S.SubSectionColumn className='moves'>
+      <S.InfoTitle variant='body1' component='h3'>
         {jobTitle}
       </S.InfoTitle>
+      <S.Company variant='body1' component='h4'>
+        {company}
+      </S.Company>
       <S.Description variant='body1' component='p'>
         {description}
       </S.Description>
-      <S.AccordionDescription>
-        <S.AccordionSummaryStyled expandIcon={<ExpandMoreOutlined />}>
-          <S.AccordionSummaryTypo variant='body1'>
-            Details
-          </S.AccordionSummaryTypo>
-        </S.AccordionSummaryStyled>
-        <S.AccordionDetailsStyled>{description}</S.AccordionDetailsStyled>
-      </S.AccordionDescription>
     </S.SubSectionColumn>
   </S.RightSectionItem>
 )
