@@ -57,25 +57,25 @@ function Header({
       {!isHome && (
         <Zoom in={!isHome} exit={isHome} timeout={1000}>
           <S.ButtonRow className='moves'>
-            <S.ButtonHeader variant='text' href={`/${button1}`}>
-              {button1}
-            </S.ButtonHeader>
+            <Link to={`/${button1}`}>
+              <S.ButtonHeader variant='text'>{button1}</S.ButtonHeader>
+            </Link>
             <S.DividerButtonHeader
               orientation='vertical'
               flexItem
               variant='middle'
             />
-            <S.ButtonHeader variant='text' href={`/${button2}`}>
-              {button2}
-            </S.ButtonHeader>
+            <Link to={`/${button2}`}>
+              <S.ButtonHeader variant='text'>{button2}</S.ButtonHeader>
+            </Link>
             <S.DividerButtonHeader
               orientation='vertical'
               flexItem
               variant='middle'
             />
-            <S.ButtonHeader variant='text' href={`/${button3}`}>
-              {button3}
-            </S.ButtonHeader>
+            <Link to={`/${button3}`}>
+              <S.ButtonHeader variant='text'>{button3}</S.ButtonHeader>
+            </Link>
           </S.ButtonRow>
         </Zoom>
       )}

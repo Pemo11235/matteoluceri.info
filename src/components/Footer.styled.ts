@@ -33,20 +33,6 @@ const Footer = styled('footer')<FooterProps>`
     transform: translateY(12em);
   }
 
-  &.popup {
-    animation: pop 1s ease-in-out;
-    animation-iteration-count: 1;
-  }
-
-  @keyframes pop {
-    0% {
-      transform: translateY(-6em);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
-
   @media (min-width: 0px) and (max-width: 500px) {
     &.open {
       transform: translateY(-12em);

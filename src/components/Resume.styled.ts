@@ -29,23 +29,6 @@ const Title = styled(Typography)<ExtraProp>`
   font-weight: 700;
   text-align: left;
   width: 100%;
-
-
-  &.moves {
-    animation-name: move;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-in-out;
-    animation-duration: 1s;
-  }
-
-  @keyframes move {
-    0% {
-      transform: translateX(+100%);
-    }
-    100% {
-      transform: translateX(0%);
-    }
-  }
 `
 const ResumeSection = styled(Container)`
   display: flex;
@@ -66,22 +49,6 @@ const LeftSection = styled(Container)`
   @media (max-width: 799px) {
     width: fit-content;
     padding: 0;
-  }
-
-  &.moves {
-    animation-name: move;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-in-out;
-    animation-duration: 1.2s;
-  }
-
-  @keyframes move {
-    0% {
-      transform: translateX(+200%);
-    }
-    100% {
-      transform: translateX(0%);
-    }
   }
 `
 
@@ -136,22 +103,6 @@ const SubSectionRow = styled(Container)`
   @media (max-width: 500px) {
     width: 100%;
     justify-content: flex-start;
-  }
-
-  &.moves {
-    animation-name: move;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-in-out;
-    animation-duration: 1.2s;
-  }
-
-  @keyframes move {
-    0% {
-      transform: translateX(+200%);
-    }
-    100% {
-      transform: translateX(0%);
-    }
   }
 `
 const SubSectionColumn = styled(SubSectionRow)`

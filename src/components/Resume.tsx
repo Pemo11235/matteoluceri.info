@@ -2,6 +2,7 @@ import { ArrowDownward } from '@mui/icons-material'
 import React from 'react'
 import * as S from './Resume.styled'
 import { Link } from './shared/Link'
+import { FadeTransition } from './shared/Transitions'
 interface ResumeProps {
   resumeCopy: {
     title: string
@@ -35,32 +36,36 @@ function Resume({
   const id = React.useId()
   return (
     <S.Box>
-      <S.TitleRow>
-        <S.Title variant='h3' component='h1' className='moves'>
-          {title}
-        </S.Title>
-        <Link
-          to={'/public/files/CV_Matteo_Luceri-1.pdf'}
-          target='_blank'
-          download>
-          <S.DownloadButton variant='contained'>
-            Download PDF
-            <ArrowDownward
-              style={{
-                width: '0.7em',
-                height: '0.7em',
-                padding: 0,
-              }}
-            />
-          </S.DownloadButton>
-        </Link>
-      </S.TitleRow>
+      <FadeTransition>
+        <S.TitleRow>
+          <S.Title variant='h3' component='h1'>
+            {title}
+          </S.Title>
+          <Link
+            to={'/public/files/CV_Matteo_Luceri-1.pdf'}
+            target='_blank'
+            download>
+            <S.DownloadButton variant='contained'>
+              Download PDF
+              <ArrowDownward
+                style={{
+                  width: '0.7em',
+                  height: '0.7em',
+                  padding: 0,
+                }}
+              />
+            </S.DownloadButton>
+          </Link>
+        </S.TitleRow>
+      </FadeTransition>
       <S.ResumeSection>
-        <S.LeftSection className='moves'>
-          <S.SectionTitle variant='h5' component='h2'>
-            {sectionTitle}
-          </S.SectionTitle>
-        </S.LeftSection>
+        <FadeTransition>
+          <S.LeftSection>
+            <S.SectionTitle variant='h5' component='h2'>
+              {sectionTitle}
+            </S.SectionTitle>
+          </S.LeftSection>
+        </FadeTransition>
         <S.RightSection>
           {sectionItems.map(
             (
@@ -79,11 +84,13 @@ function Resume({
         </S.RightSection>
       </S.ResumeSection>
       <S.ResumeSection>
-        <S.LeftSection className='moves'>
-          <S.SectionTitle variant='h5' component='h2'>
-            {sectionTitle2}
-          </S.SectionTitle>
-        </S.LeftSection>
+        <FadeTransition>
+          <S.LeftSection>
+            <S.SectionTitle variant='h5' component='h2'>
+              {sectionTitle2}
+            </S.SectionTitle>
+          </S.LeftSection>
+        </FadeTransition>
         <S.RightSection>
           {sectionItems2.map(
             ({ period: { start, end }, jobTitle, company, description }) => (
@@ -99,11 +106,13 @@ function Resume({
         </S.RightSection>
       </S.ResumeSection>
       <S.ResumeSection>
-        <S.LeftSection className='moves'>
-          <S.SectionTitle variant='h5' component='h2'>
-            {sectionTitle3}
-          </S.SectionTitle>
-        </S.LeftSection>
+        <FadeTransition>
+          <S.LeftSection>
+            <S.SectionTitle variant='h5' component='h2'>
+              {sectionTitle3}
+            </S.SectionTitle>
+          </S.LeftSection>
+        </FadeTransition>
         <S.RightSection>
           {sectionItems3.map(
             ({ period: { start, end }, jobTitle, company, description }) => (
@@ -129,24 +138,28 @@ const SectionItem = ({
   description,
 }: SectionItemProps) => (
   <S.RightSectionItem>
-    <S.SubSectionRow className='moves'>
-      <S.Period variant='body1' component='div'>
-        {period.start} {period.start !== '' ? '-' : '‣'}
-        {period.start.length > 5 ? <br /> : '  '}
-        {period.end}
-      </S.Period>
-    </S.SubSectionRow>
-    <S.SubSectionColumn className='moves'>
-      <S.InfoTitle variant='body1' component='h3'>
-        {jobTitle}
-      </S.InfoTitle>
-      <S.Company variant='body1' component='h4'>
-        {company}
-      </S.Company>
-      <S.Description variant='body1' component='p'>
-        {description}
-      </S.Description>
-    </S.SubSectionColumn>
+    <FadeTransition>
+      <S.SubSectionRow>
+        <S.Period variant='body1' component='div'>
+          {period.start} {period.start !== '' ? '-' : '‣'}
+          {period.start.length > 5 ? <br /> : '  '}
+          {period.end}
+        </S.Period>
+      </S.SubSectionRow>
+    </FadeTransition>
+    <FadeTransition>
+      <S.SubSectionColumn>
+        <S.InfoTitle variant='body1' component='h3'>
+          {jobTitle}
+        </S.InfoTitle>
+        <S.Company variant='body1' component='h4'>
+          {company}
+        </S.Company>
+        <S.Description variant='body1' component='p'>
+          {description}
+        </S.Description>
+      </S.SubSectionColumn>
+    </FadeTransition>
   </S.RightSectionItem>
 )
 

@@ -118,7 +118,7 @@ const ButtonRow = styled.div`
 const ButtonHeader = styled(Button)`
   color: #232323;
   font-weight: 400;
-
+  padding: 20px;
   font-size: 1em;
 
   @media (min-width: 0px) and (max-width: 799px) {

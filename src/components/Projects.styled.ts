@@ -22,21 +22,10 @@ const Title = styled(Typography)<ExtraProp>`
   font-weight: 700;
   text-align: left;
   width: 100%;
+  padding: 0 0 0 20px;
 
-  &.moves {
-    animation-name: move;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-in-out;
-    animation-duration: 1s;
-  }
-
-  @keyframes move {
-    0% {
-      transform: translateX(+100%);
-    }
-    100% {
-      transform: translateX(0%);
-    }
+  @media (max-width: 999px) {
+    padding: 0;
   }
 `
 
@@ -53,13 +42,13 @@ const ProjectRow = styled(Container)`
   width: 100%;
   min-height: 300px;
   margin: 6em 0 0 0;
-  padding: 1em 0 1em 1em;
+  padding: 1em 0 1em 20px;
 
   :first-child {
     margin: 0 0 0 0;
   }
 
-  @media (max-width: 699px) {
+  @media (max-width: 999px) {
     flex-direction: column;
     padding: 0 0 2em 0;
     border-bottom: 1px solid #e0e0e0;
@@ -72,27 +61,15 @@ const LeftSection = styled(Container)`
   width: 60%;
   margin: 0;
   padding: 0 10% 0 0;
-  border-right: 1px solid #e0e0e0;
 
-  @media (max-width: 799px) {
+  @media (max-width: 1300px) {
+    padding: 0 5% 0 0;
+    width: 50%;
+  }
+
+  @media (max-width: 999px) {
     width: fit-content;
     padding: 0;
-  }
-
-  &.moves {
-    animation-name: move;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-in-out;
-    animation-duration: 1.2s;
-  }
-
-  @keyframes move {
-    0% {
-      transform: translateX(+200%);
-    }
-    100% {
-      transform: translateX(0%);
-    }
   }
 `
 
@@ -100,9 +77,8 @@ const RightSection = styled(LeftSection)`
   width: 40%;
   padding: 0;
 
-  @media (max-width: 799px) {
+  @media (max-width: 999px) {
     width: 100%;
-    border-right: none;
     align-items: center;
   }
 `
@@ -114,11 +90,26 @@ const ProjectTitle = styled(Typography)<ExtraProp>`
 `
 
 const Image = styled('img')`
-  max-width: 30em;
-  min-width: 30em;
-  max-height: 21em;
-  min-height: 21em;
+  width: 80%
+  height: 350px;
   object-fit: cover;
+  border-radius: 25px;
+  -webkit-box-shadow: 2px 6px 21px -4px rgba(0, 0, 0, 0.74);
+  box-shadow: 2px 6px 21px -4px rgba(0, 0, 0, 0.74);
+
+  @media (max-width: 999px) {
+    height: 250px;
+    width: fit-content;
+  }
+
+  @media (max-width: 700px) {
+    height: 200px;
+  }
+
+  @media (max-width: 400px) {
+    width: fit-content;
+    height: 150px;
+  }
 `
 
 const Description = styled(Typography)<ExtraProp>`

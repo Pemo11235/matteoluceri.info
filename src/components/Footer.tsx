@@ -24,14 +24,9 @@ function Footer({
 
   return (
     <S.Footer
-      className={`popup ${isOpen ? 'open' : 'close'}`}
+      className={`${isOpen ? 'open' : 'close'}`}
       $isOpen={isOpen}
       onClick={() => handleArrowClose()}>
-      <Typography
-        variant='caption'
-        sx={{ width: '100%', textAlign: 'center', margin: '10px 0 -10px 0' }}>
-        INFO
-      </Typography>
       <div style={{ width: '100%', height: '2em' }}>
         <S.ArrowUp
           strokeWidth={2}
@@ -40,6 +35,11 @@ function Footer({
           $isOpen={isOpen}
         />
       </div>
+      <Typography
+        variant='caption'
+        sx={{ width: '100%', textAlign: 'center', margin: '0px 0 10px 0' }}>
+        INFO
+      </Typography>
       <S.Box $isOpen={isOpen}>
         <S.Column>
           <S.Label>Phone</S.Label>
