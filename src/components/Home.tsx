@@ -6,6 +6,11 @@ interface HomeProps {
     button1: string
     button2: string
     button3: string
+    color: {
+      orange: string
+      red: string
+      cyan: string
+    }
   }
   homeCopy: {
     greeting: string
@@ -14,7 +19,12 @@ interface HomeProps {
   avatar: string
 }
 function Home({
-  homeButton: { button1, button2, button3 },
+  homeButton: {
+    button1,
+    button2,
+    button3,
+    color: { orange, red, cyan },
+  },
   homeCopy: { greeting, text },
   avatar,
 }: HomeProps) {
@@ -34,7 +44,7 @@ function Home({
           <Link to={`/${button1}`}>
             <S.ButtonCircle
               variant='contained'
-              sx={{ backgroundColor: '#EEA302' }}
+              sx={{ backgroundColor: orange }}
               className='fade-in'
               $animationDuration={2}>
               {button1}
@@ -43,7 +53,7 @@ function Home({
           <Link to={`/${button2}`}>
             <S.ButtonCircle
               variant='contained'
-              sx={{ backgroundColor: '#FF3B25' }}
+              sx={{ backgroundColor: red }}
               className='fade-in'
               $animationDuration={2.5}>
               {button2}
@@ -52,7 +62,7 @@ function Home({
           <Link to={`/${button3}`}>
             <S.ButtonCircle
               variant='contained'
-              sx={{ backgroundColor: '#80D8DA' }}
+              sx={{ backgroundColor: cyan }}
               className='fade-in'
               $animationDuration={3}>
               {button3}

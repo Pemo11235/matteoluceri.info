@@ -52,10 +52,10 @@ function Footer({
         <S.Column>
           <S.Label>Follow Me</S.Label>
           <div>
-            <S.IconButton href={linkedIn} target='_blank'>
+            <S.IconButton href={linkedIn} target='_blank' $type={'linkedin'}>
               <LinkedInIcon />
             </S.IconButton>
-            <S.IconButton href={github} target='_blank'>
+            <S.IconButton href={github} target='_blank' $type={'github'}>
               <GitHubIcon />
             </S.IconButton>
           </div>

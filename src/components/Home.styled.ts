@@ -162,6 +162,7 @@ const ButtonCircle = styled(Button)<ExtraButtonProps>`
   margin: 0 0 0 10px;
   text-transform: none;
   font-weight: 700;
+  font-size: 1.2em;
 
   :first-child {
     margin-left: 0;

@@ -17,15 +17,37 @@ interface HeaderProps {
     button1: string
     button2: string
     button3: string
+    color: {
+      orange: string
+      red: string
+      cyan: string
+    }
   }
 }
 function Header({
   headerCopy: { name, jobRole, shortJobRole },
-  headerButton: { button1, button2, button3 },
+  headerButton: {
+    button1,
+    button2,
+    button3,
+    color: { orange, red, cyan },
+  },
 }: HeaderProps) {
   const { pathname } = useLocation()
 
   const isHome = pathname === '/'
+  const isButton1 = pathname === `/${button1}`
+  const isButton2 = pathname === `/${button2}`
+  const isButton3 = pathname === `/${button3}`
+
+  const iconColor = () => {
+    if (isHome) return '#232323'
+    if (isButton1) return orange
+    if (isButton2) return red
+    if (isButton3) return cyan
+    return '#232323'
+  }
+
   return (
     <S.AppBar>
       <Toolbar sx={{ maxWidth: 'fit-content', overflow: 'hidden' }}>
@@ -42,7 +64,11 @@ function Header({
           )}
         </Link>
         <Link to='/'>
-          <S.NameTypography variant='h5' component='div' className='moves'>
+          <S.NameTypography
+            variant='h5'
+            component='div'
+            className='moves'
+            color={iconColor()}>
             {name}
           </S.NameTypography>
         </Link>
@@ -58,7 +84,12 @@ function Header({
         <Zoom in={!isHome} exit={isHome} timeout={1000}>
           <S.ButtonRow className='moves'>
             <Link to={`/${button1}`}>
-              <S.ButtonHeader variant='text'>{button1}</S.ButtonHeader>
+              <S.ButtonHeader
+                $color={orange}
+                $isActive={isButton1}
+                variant='text'>
+                {button1}
+              </S.ButtonHeader>
             </Link>
             <S.DividerButtonHeader
               orientation='vertical'
@@ -66,7 +97,9 @@ function Header({
               variant='middle'
             />
             <Link to={`/${button2}`}>
-              <S.ButtonHeader variant='text'>{button2}</S.ButtonHeader>
+              <S.ButtonHeader $color={red} $isActive={isButton2} variant='text'>
+                {button2}
+              </S.ButtonHeader>
             </Link>
             <S.DividerButtonHeader
               orientation='vertical'
@@ -74,7 +107,12 @@ function Header({
               variant='middle'
             />
             <Link to={`/${button3}`}>
-              <S.ButtonHeader variant='text'>{button3}</S.ButtonHeader>
+              <S.ButtonHeader
+                $color={cyan}
+                $isActive={isButton3}
+                variant='text'>
+                {button3}
+              </S.ButtonHeader>
             </Link>
           </S.ButtonRow>
         </Zoom>

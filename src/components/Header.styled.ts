@@ -23,7 +23,6 @@ const AppBar = styled(AppBarBase)`
 `
 
 const NameTypography = styled(Typography)<ExtraProp>`
-  color: #232323;
   font-weight: 700;
   word-wrap: never;
   white-space: nowrap;
@@ -115,11 +114,21 @@ const ButtonRow = styled.div`
     display: none;
   }
 `
-const ButtonHeader = styled(Button)`
+
+type ButtonHeaderProps = {
+  $color?: string
+  $isActive?: boolean
+}
+const ButtonHeader = styled(Button)<ButtonHeaderProps>`
   color: #232323;
   font-weight: 400;
   padding: 20px;
   font-size: 1em;
+
+  &:hover {
+    color: ${({ $color }) => $color};
+    background-color: #f3f3f3;
+  }
 
   @media (min-width: 0px) and (max-width: 799px) {
     display: none;

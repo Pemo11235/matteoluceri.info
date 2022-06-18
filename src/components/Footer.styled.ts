@@ -107,12 +107,30 @@ const Value = styled(Typography)`
 `
 type IconButtonProps = {
   target: string
+  $type?: 'linkedin' | 'github'
 }
 const IconButton = styled(Button)<IconButtonProps>`
   padding: 0;
   margin: 0;
   min-width: 40px;
   color: #232323;
+
+  ${({ $type }) =>
+    $type === 'github' &&
+    `
+  &:hover {
+    color: #f3f3f3;
+    background-color: #232323;
+  }`}
+
+  ${({ $type }) =>
+    $type === 'linkedin' &&
+    `
+    &:hover {
+      color: white;
+      background-color: #0A66C2;
+    }`}
+}
 `
 
 const ArrowUp = styled(ArrowDropUp)<FooterProps>`

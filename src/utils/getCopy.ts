@@ -1,4 +1,9 @@
 export const getCopy = () => ({
+  color: {
+    orange: '#EEA302',
+    red: '#FF3B25',
+    cyan: '#80D8DA',
+  },
   headerCopy: {
     name: 'Matteo Luceri',
     jobRole: 'Front-end Developer',
@@ -8,6 +13,11 @@ export const getCopy = () => ({
     button1: 'Resume',
     button2: 'Projects',
     button3: 'Contact',
+    color: {
+      orange: '#EEA302',
+      red: '#FF3B25',
+      cyan: '#80D8DA',
+    },
   },
   homeCopy: {
     greeting: 'Hello World!',
