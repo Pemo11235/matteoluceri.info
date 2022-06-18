@@ -30,9 +30,6 @@ const Title = styled(Typography)<ExtraProp>`
   text-align: left;
   width: 100%;
 
-  @media (max-width: 500px) {
-    font-size: 1.5rem;
-  }
 
   &.moves {
     animation-name: move;

@@ -23,7 +23,8 @@ const Footer = styled('footer')<FooterProps>`
   width: 100%;
   height: 13em;
   cursor: pointer;
-
+  box-shadow: 0px -2px 4px -1px rgb(0 0 0 / 20%),
+    0px -4px 5px 0px rgb(0 0 0 / 14%), 0px -1px 10px 0px rgb(0 0 0 / 12%);
   &.open {
     transform: translateY(-6em);
   }
@@ -54,6 +55,7 @@ const Footer = styled('footer')<FooterProps>`
 `
 const Divider = styled(DividerBase)`
   background-color: transparent;
+  z-index: 1200;
 `
 type ExtraBoxProps = {
   $isOpen: boolean
@@ -117,8 +119,10 @@ const Value = styled(Typography)`
 
   line-height: 1;
 `
-
-const IconButton = styled(Button)`
+type IconButtonProps = {
+  target: string
+}
+const IconButton = styled(Button)<IconButtonProps>`
   padding: 0;
   margin: 0;
   min-width: 40px;

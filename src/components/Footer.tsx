@@ -27,12 +27,11 @@ function Footer({
       className={`popup ${isOpen ? 'open' : 'close'}`}
       $isOpen={isOpen}
       onClick={() => handleArrowClose()}>
-      <S.Divider variant='middle'>
-        <Typography variant='caption' sx={{ backgroundColor: 'transparent' }}>
-          {' '}
-          INFO
-        </Typography>
-      </S.Divider>
+      <Typography
+        variant='caption'
+        sx={{ width: '100%', textAlign: 'center', margin: '10px 0 -10px 0' }}>
+        INFO
+      </Typography>
       <div style={{ width: '100%', height: '2em' }}>
         <S.ArrowUp
           strokeWidth={2}
@@ -53,10 +52,10 @@ function Footer({
         <S.Column>
           <S.Label>Follow Me</S.Label>
           <div>
-            <S.IconButton href={linkedIn}>
+            <S.IconButton href={linkedIn} target='_blank'>
               <LinkedInIcon />
             </S.IconButton>
-            <S.IconButton href={github}>
+            <S.IconButton href={github} target='_blank'>
               <GitHubIcon />
             </S.IconButton>
           </div>

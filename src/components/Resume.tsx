@@ -150,4 +150,4 @@ const SectionItem = ({
   </S.RightSectionItem>
 )
 
-export default Resume
+export { Resume }
