@@ -165,6 +165,44 @@ export const getCopy = () => ({
       },
     ],
   },
+  contactCopy: {
+    title: 'Contact',
+    subtitle: 'Feel free to contact me anytime!',
+    contactInfo: {
+      email: 'matteoluceri@msn.com',
+      phone: '+39 340 73 67 218',
+    },
+    contactForm: {
+      name: {
+        placeholder: 'Insert your name',
+        required: true,
+        label: 'Name',
+      },
+      lastName: {
+        placeholder: 'Insert your last name',
+        required: true,
+        label: 'Last Name',
+      },
+      email: {
+        placeholder: 'Insert your e-mail',
+        required: true,
+        label: 'Email',
+      },
+      message: {
+        placeholder: 'Message',
+        required: true,
+        label: 'Message',
+      },
+      subject: {
+        placeholder: 'Subject',
+        required: true,
+        label: 'Subject',
+      },
+      submit: 'Submit',
+      success: 'Message sent successfully!',
+      error: 'Error sending message!',
+    },
+  },
   assets: {
     avatar: 'public/images/download.png',
     coloredAvatars: [
