@@ -53,7 +53,7 @@ function Home({
 
   React.useEffect(() => {
     resetTimeout()
-    timeoutRef.current = setTimeout(cycleAvatar, 1000)
+    timeoutRef.current = setTimeout(cycleAvatar, 3000)
 
     return () => {
       resetTimeout()
@@ -63,7 +63,10 @@ function Home({
   return (
     <S.Container>
       <S.ColumnLeft>
-        <S.AvatarStyled src={coloredAvatars[avatarIndex]} />
+        <S.AvatarStyled
+          src={coloredAvatars[avatarIndex]}
+          className={'fade-in'}
+        />
       </S.ColumnLeft>
       <S.ColumnRight>
         <S.GreetingTypography variant='h3' component='h1' className='fade-in'>

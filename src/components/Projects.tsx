@@ -1,5 +1,6 @@
 import GitHub from '@mui/icons-material/GitHub'
-import { Fade, Slide } from '@mui/material'
+import { Fade, Slide, Zoom } from '@mui/material'
+import React from 'react'
 import * as S from './Projects.styled'
 import { Link } from './shared/Link'
 import { FadeTransition } from './shared/Transitions'
@@ -41,6 +42,10 @@ type RowProps = {
 const Project = ({
   project: { id, projectTitle, description, linkGithub, imageSrc },
 }: RowProps) => {
+  const onImageClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    window.open(imageSrc, '_blank')
+  }
   return (
     <S.ProjectRow>
       <FadeTransition>
@@ -67,7 +72,7 @@ const Project = ({
       </FadeTransition>
       <FadeTransition>
         <S.RightSection>
-          <S.Image src={imageSrc} />
+          <S.Image src={imageSrc} onClick={onImageClick} />
         </S.RightSection>
       </FadeTransition>
     </S.ProjectRow>

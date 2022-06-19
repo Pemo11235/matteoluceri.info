@@ -96,6 +96,7 @@ const Image = styled('img')`
   border-radius: 25px;
   -webkit-box-shadow: 2px 6px 21px -4px rgba(0, 0, 0, 0.74);
   box-shadow: 2px 6px 21px -4px rgba(0, 0, 0, 0.74);
+  cursor: pointer;
 
   @media (max-width: 999px) {
     height: 250px;

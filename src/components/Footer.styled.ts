@@ -149,7 +149,6 @@ const ArrowUp = styled(ArrowDropUp)<FooterProps>`
 
   :hover {
     cursor: pointer;
-    animation: none;
   }
 
   @keyframes fadeIn {

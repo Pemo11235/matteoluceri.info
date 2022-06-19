@@ -48,7 +48,6 @@ function Contact({
     contactForm,
   },
 }: ContactProps) {
-  console.log(import.meta.env)
   const onSubmit: SubmitHandler<SubmitValues> = async (data) => {
     const { name, 'last name': lastName, email, subject, message } = data
     try {

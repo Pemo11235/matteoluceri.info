@@ -76,6 +76,27 @@ const AvatarStyled = styled(Avatar)`
   @media (min-width: 800px) {
     transform: scale(1.05);
   }
+  &.fade-in {
+    opacity: 1;
+    animation-name: fadeIn;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 3s;
+  }
+
+  :hover {
+    cursor: pointer;
+  }
+
+  @keyframes fadeIn {
+    0%,
+    100% {
+      opacity: 0;
+    }
+    30% {
+      opacity: 1;
+    }
+  }
 `
 type ExtraProp = {
   component: string
@@ -169,6 +190,7 @@ const ButtonCircle = styled(Button)<ExtraButtonProps>`
   @media (min-width: 600px) and (max-width: 749px) {
     width: 80px;
     height: 80px;
+    font-size: 0.8em;
   }
 
   @media (min-width: 750px) and (max-width: 999px) {
