@@ -40,12 +40,17 @@ const Subtitle = styled(Typography)<ExtraProp>`
   font-weight: 700;
   width: 100%;
   margin: 0;
-  text-align: left;
+  text-align: center;
 `
 const ContactInfo = styled(Subtitle)`
-  margin: 4em 0 0 0;
   font-weight: 400;
   text-align: left;
+
+  margin: 1rem;
+
+  @media (max-width: 500px) {
+    font-size: 1.2rem;
+  }
 `
 
 const ContactSection = styled(Container)`
@@ -61,7 +66,7 @@ const ContentRow = styled(Container)`
   flex-direction: row;
   width: 100%;
   min-height: min-content;
-  margin: 4em 0 0 0;
+  margin: 1em 0 0 0;
 
   @media (max-width: 999px) {
     flex-direction: column;
@@ -80,18 +85,28 @@ const LeftSection = styled(Container)`
   }
 
   @media (max-width: 999px) {
-    width: fit-content;
+    flex-direction: row;
+    width: 100%;
     padding: 0;
+  }
+  @media (max-width: 500px) {
+    width: 100%;
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
   }
 `
 
 const RightSection = styled(LeftSection)`
   width: 60%;
   padding: 0;
+  margin: 1em 0 0 0;
 
   @media (max-width: 999px) {
     width: 100%;
     align-items: center;
+    margin: 2em 0;
   }
 `
 
@@ -112,19 +127,39 @@ const FormRow = styled(Container)`
   padding: 0;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+    width: 100%;
+  }
 `
 
 const Form50Row = styled(FormRow)`
   width: 50%;
   margin: 0 1em;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    margin: 1em 0 0 0;
+  }
 `
 const Form70Row = styled(FormRow)`
   width: 70%;
   margin: 0 1em;
+
+  @media (max-width: 500px) {
+    width: 100%;
+  }
 `
 const Form30Row = styled(FormRow)`
   width: 30%;
   margin: 0 1em;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    margin: 1em 0 0 0;
+    align-items: flex-end;
+  }
 `
 
 const TextField = styled(TextFieldBase)({
@@ -144,7 +179,6 @@ const TextField = styled(TextFieldBase)({
       borderColor: '#80D8DA',
       borderWidth: 2,
     },
-    '& input:invalid + fieldset': {},
     '& input:focus + fieldset': {
       borderLeftWidth: 6,
       padding: '4px !important', // override inline-style
@@ -174,14 +208,19 @@ const TextField = styled(TextFieldBase)({
     '&.Mui-focused fieldset': {
       borderColor: '#80D8DA',
     },
+    '&.Mui-error fieldset ': {
+      borderColor: 'red',
+    },
+  },
+  '@media (max-width: 500px)': {
+    margin: '10px 0 0 0',
   },
 })
 
 const TextArea = styled(TextField)`
-  ${(props) =>
-    props.value !== '' &&
-    `
-  `}
+  @media (max-width: 500px) {
+    max-height: 100px;
+  }
 `
 const Input = styled(InputBase)`
   width: 100%;
@@ -204,24 +243,14 @@ const ButtonCircle = styled(Button)`
   }
 
   @media (min-width: 0px) and (max-width: 449px) {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     font-size: 0.8em;
   }
 
-  @media (min-width: 450px) and (max-width: 599px) {
+  @media (min-width: 450px) and (max-width: 999px) {
     width: 120px;
     height: 120px;
-  }
-
-  @media (min-width: 600px) and (max-width: 749px) {
-    width: 80px;
-    height: 80px;
-  }
-
-  @media (min-width: 750px) and (max-width: 999px) {
-    width: 100px;
-    height: 100px;
   }
   @media (min-width: 1000px) {
     width: 130px;

@@ -2,6 +2,7 @@ import { Badge } from '@mui/icons-material'
 import { InputAdornment, Box } from '@mui/material'
 import * as S from './Contact.styled'
 import { FadeTransition } from './shared/Transitions'
+import emailjs from 'emailjs-com'
 
 import React from 'react'
 import {
@@ -36,7 +37,7 @@ type ContactForm = {
 type FormFieldProps = {
   placeholder: string
   required: boolean
-  label: string
+  label: 'name' | 'last name' | 'email' | 'message' | 'subject'
 }
 
 function Contact({
@@ -47,8 +48,26 @@ function Contact({
     contactForm,
   },
 }: ContactProps) {
-  const [textAreaMessage, setTextAreaMessage] = React.useState('')
-  const onSubmit = (data: SubmitValues) => console.log(data)
+  console.log(import.meta.env)
+  const onSubmit: SubmitHandler<SubmitValues> = async (data) => {
+    const { name, 'last name': lastName, email, subject, message } = data
+    try {
+      const templateParams = {
+        name: `${name} ${lastName}`,
+        email,
+        subject,
+        message,
+      }
+      await emailjs.send(
+        import.meta.env.VITE_SERVICE_ID,
+        import.meta.env.VITE_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_PUBLIC_KEY
+      )
+    } catch (e) {
+      console.log(e)
+    }
+  }
 
   return (
     <S.Box>
@@ -58,12 +77,16 @@ function Contact({
             {title}
           </S.Title>
         </FadeTransition>
+        <S.FormRow>
+          <FadeTransition>
+            <S.Subtitle variant='h5' component='h2'>
+              {subtitle}
+            </S.Subtitle>
+          </FadeTransition>
+        </S.FormRow>
         <FadeTransition>
           <S.ContentRow>
             <S.LeftSection>
-              <S.Subtitle variant='h5' component='h2'>
-                {subtitle}
-              </S.Subtitle>
               <S.ContactInfo variant='h6' component='h3'>
                 <strong>
                   Phone:
@@ -94,7 +117,7 @@ interface ContactFormProps {
   onSubmit: (data: any) => void
 }
 
-interface SubmitValues extends SubmitHandler<FieldValues> {
+type SubmitValues = {
   name: string
   ['last name']: string
   email: string
@@ -114,7 +137,7 @@ const ContactForm = ({
   },
   onSubmit,
 }: ContactFormProps) => {
-  const { register, handleSubmit, watch, control } = useForm()
+  const { handleSubmit, control } = useForm<SubmitValues>()
   return (
     <S.FormSection onSubmit={handleSubmit(onSubmit)}>
       <S.FormRow>
@@ -176,6 +199,7 @@ const ContactForm = ({
                 value={value}
                 error={!!error}
                 helperText={error ? name.placeholder : null}
+                type='email'
               />
             )}
           />
@@ -185,7 +209,7 @@ const ContactForm = ({
             name={subject.label}
             control={control}
             defaultValue={''}
-            rules={{ required: 'E-mail subject is required' }}
+            rules={{ required: 'Subject is required' }}
             render={({ field: { onChange, value }, fieldState: { error } }) => (
               <S.TextField
                 margin='normal'
@@ -207,7 +231,7 @@ const ContactForm = ({
             name={message.label}
             control={control}
             defaultValue={''}
-            rules={{ required: 'E-mail subject is required' }}
+            rules={{ required: 'Message is required' }}
             render={({ field: { onChange, value }, fieldState: { error } }) => (
               <S.TextArea
                 margin='normal'
@@ -215,7 +239,8 @@ const ContactForm = ({
                 placeholder={message.placeholder}
                 required={message.required}
                 multiline
-                rows={7}
+                minRows={3}
+                maxRows={4}
                 value={value}
                 onChange={onChange}
                 InputProps={{ sx: { border: 'none' } }}
@@ -223,6 +248,7 @@ const ContactForm = ({
                 focused={value !== ''}
                 error={!!error}
                 helperText={error ? name.placeholder : null}
+                inputProps={{ maxLength: 500 }}
               />
             )}
           />
