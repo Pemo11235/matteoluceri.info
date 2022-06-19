@@ -16,6 +16,7 @@ function App() {
               homeButton={t.cta}
               homeCopy={t.homeCopy}
               avatar={t.assets.avatar}
+              coloredAvatars={t.assets.coloredAvatars}
             />
           }
         />

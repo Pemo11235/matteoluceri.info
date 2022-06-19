@@ -177,7 +177,7 @@ const TitleRow = styled(Container)`
 const DownloadButton = styled(Button)`
   color: #232323;
   padding: 5px 10px 0 10px;
-  background-color: #e0e0e0;
+  background-color: #eea302;
   border-radius: 20px;
   border: 1px solid #232323;
   font-weight: 700;

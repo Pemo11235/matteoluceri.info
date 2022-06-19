@@ -1,17 +1,11 @@
-import { Fade } from '@mui/material'
+import { Fade, FadeProps } from '@mui/material'
 
-interface FadeProps {
+interface FadeTransitionProps extends FadeProps {
   children: React.ReactElement
-  timeout?: number
-  inCondition?: boolean
 }
-const FadeTransition = ({ children, timeout, inCondition }: FadeProps) => {
+const FadeTransition = ({ children, ...props }: FadeTransitionProps) => {
   return (
-    <Fade
-      timeout={timeout || 2000}
-      in={inCondition || true}
-      mountOnEnter
-      unmountOnExit>
+    <Fade timeout={props.timeout || 2000} in={props.in || true} {...props}>
       {children}
     </Fade>
   )

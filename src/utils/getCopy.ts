@@ -167,5 +167,10 @@ export const getCopy = () => ({
   },
   assets: {
     avatar: 'public/images/download.png',
+    coloredAvatars: [
+      'public/images/orange-avatar.png',
+      'public/images/red-avatar.png',
+      'public/images/cyan-avatar.png',
+    ],
   },
 })

@@ -35,7 +35,7 @@ const Footer = styled('footer')<FooterProps>`
 
   @media (min-width: 0px) and (max-width: 500px) {
     &.open {
-      transform: translateY(-12em);
+      transform: translateY(-11em);
     }
   }
 `
