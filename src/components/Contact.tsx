@@ -4,6 +4,12 @@ import * as S from './Contact.styled'
 import { FadeTransition } from './shared/Transitions'
 
 import React from 'react'
+import {
+  Controller,
+  FieldValues,
+  SubmitHandler,
+  useForm,
+} from 'react-hook-form'
 
 interface ContactProps {
   contactCopy: {
@@ -13,19 +19,20 @@ interface ContactProps {
       email: string
       phone: string
     }
-    contactForm: {
-      name: FormFieldProps
-      lastName: FormFieldProps
-      email: FormFieldProps
-      message: FormFieldProps
-      submit: string
-      success: string
-      error: string
-      subject: FormFieldProps
-    }
+    contactForm: ContactForm
   }
 }
 
+type ContactForm = {
+  name: FormFieldProps
+  lastName: FormFieldProps
+  email: FormFieldProps
+  message: FormFieldProps
+  submit: string
+  success?: string
+  error?: string
+  subject: FormFieldProps
+}
 type FormFieldProps = {
   placeholder: string
   required: boolean
@@ -37,19 +44,12 @@ function Contact({
     title,
     subtitle,
     contactInfo: { email: emailInfo, phone },
-    contactForm: {
-      name,
-      lastName,
-      email,
-      message,
-      submit,
-      success,
-      error,
-      subject,
-    },
+    contactForm,
   },
 }: ContactProps) {
   const [textAreaMessage, setTextAreaMessage] = React.useState('')
+  const onSubmit = (data: SubmitValues) => console.log(data)
+
   return (
     <S.Box>
       <S.ContactSection>
@@ -80,69 +80,158 @@ function Contact({
               </S.ContactInfo>
             </S.LeftSection>
             <S.RightSection>
-              <S.FormSection>
-                <S.FormRow>
-                  <S.Form50Row>
-                    <S.TextField
-                      margin='normal'
-                      label={name.label}
-                      placeholder={name.placeholder}
-                      required={name.required}
-                    />
-                  </S.Form50Row>
-                  <S.Form50Row>
-                    <S.TextField
-                      margin='normal'
-                      label={lastName.label}
-                      placeholder={lastName.placeholder}
-                      required={lastName.required}
-                    />
-                  </S.Form50Row>
-                </S.FormRow>
-                <S.FormRow>
-                  <S.Form50Row>
-                    <S.TextField
-                      margin='normal'
-                      label={email.label}
-                      placeholder={email.placeholder}
-                      required={email.required}
-                    />
-                  </S.Form50Row>
-                  <S.Form50Row>
-                    <S.TextField
-                      margin='normal'
-                      label={subject.label}
-                      placeholder={subject.placeholder}
-                      required={subject.required}
-                    />
-                  </S.Form50Row>
-                </S.FormRow>
-                <S.FormRow>
-                  <S.Form70Row>
-                    <S.TextArea
-                      margin='normal'
-                      label={message.label}
-                      placeholder={message.placeholder}
-                      required={message.required}
-                      multiline
-                      rows={7}
-                      value={textAreaMessage}
-                      onChange={(e) => setTextAreaMessage(e.target.value)}
-                      InputProps={{ sx: { border: 'none' } }}
-                      sx={{ outline: 'none' }}
-                      focused={textAreaMessage !== ''}
-                    />
-                  </S.Form70Row>
-                  <S.Form30Row>
-                    <S.ButtonCircle>{submit}</S.ButtonCircle>
-                  </S.Form30Row>
-                </S.FormRow>
-              </S.FormSection>
+              <ContactForm contactForm={contactForm} onSubmit={onSubmit} />
             </S.RightSection>
           </S.ContentRow>
         </FadeTransition>
       </S.ContactSection>
     </S.Box>
+  )
+}
+
+interface ContactFormProps {
+  contactForm: ContactForm
+  onSubmit: (data: any) => void
+}
+
+interface SubmitValues extends SubmitHandler<FieldValues> {
+  name: string
+  ['last name']: string
+  email: string
+  message: string
+  subject: string
+}
+const ContactForm = ({
+  contactForm: {
+    name,
+    lastName,
+    email,
+    message,
+    submit,
+    success,
+    error,
+    subject,
+  },
+  onSubmit,
+}: ContactFormProps) => {
+  const { register, handleSubmit, watch, control } = useForm()
+  return (
+    <S.FormSection onSubmit={handleSubmit(onSubmit)}>
+      <S.FormRow>
+        <S.Form50Row>
+          <Controller
+            name={name.label}
+            control={control}
+            defaultValue={''}
+            rules={{ required: 'First Name required' }}
+            render={({ field: { onChange, value }, fieldState: { error } }) => (
+              <S.TextField
+                margin='normal'
+                label={name.label}
+                placeholder={name.placeholder}
+                required={name.required}
+                onChange={onChange}
+                value={value}
+                error={!!error}
+                helperText={error ? name.placeholder : null}
+              />
+            )}
+          />
+        </S.Form50Row>
+        <S.Form50Row>
+          <Controller
+            name={lastName.label}
+            control={control}
+            defaultValue={''}
+            rules={{ required: 'Last Name required' }}
+            render={({ field: { onChange, value }, fieldState: { error } }) => (
+              <S.TextField
+                margin='normal'
+                label={lastName.label}
+                placeholder={lastName.placeholder}
+                required={lastName.required}
+                onChange={onChange}
+                value={value}
+                error={!!error}
+                helperText={error ? name.placeholder : null}
+              />
+            )}
+          />
+        </S.Form50Row>
+      </S.FormRow>
+      <S.FormRow>
+        <S.Form50Row>
+          <Controller
+            name={email.label}
+            control={control}
+            defaultValue={''}
+            rules={{ required: 'E-mail required' }}
+            render={({ field: { onChange, value }, fieldState: { error } }) => (
+              <S.TextField
+                margin='normal'
+                label={email.label}
+                placeholder={email.placeholder}
+                required={email.required}
+                onChange={onChange}
+                value={value}
+                error={!!error}
+                helperText={error ? name.placeholder : null}
+              />
+            )}
+          />
+        </S.Form50Row>
+        <S.Form50Row>
+          <Controller
+            name={subject.label}
+            control={control}
+            defaultValue={''}
+            rules={{ required: 'E-mail subject is required' }}
+            render={({ field: { onChange, value }, fieldState: { error } }) => (
+              <S.TextField
+                margin='normal'
+                label={subject.label}
+                placeholder={subject.placeholder}
+                required={subject.required}
+                onChange={onChange}
+                value={value}
+                error={!!error}
+                helperText={error ? name.placeholder : null}
+              />
+            )}
+          />
+        </S.Form50Row>
+      </S.FormRow>
+      <S.FormRow>
+        <S.Form70Row>
+          <Controller
+            name={message.label}
+            control={control}
+            defaultValue={''}
+            rules={{ required: 'E-mail subject is required' }}
+            render={({ field: { onChange, value }, fieldState: { error } }) => (
+              <S.TextArea
+                margin='normal'
+                label={message.label}
+                placeholder={message.placeholder}
+                required={message.required}
+                multiline
+                rows={7}
+                value={value}
+                onChange={onChange}
+                InputProps={{ sx: { border: 'none' } }}
+                sx={{ outline: 'none' }}
+                focused={value !== ''}
+                error={!!error}
+                helperText={error ? name.placeholder : null}
+              />
+            )}
+          />
+        </S.Form70Row>
+        <S.Form30Row>
+          <S.ButtonCircle type='submit'>{submit}</S.ButtonCircle>
+        </S.Form30Row>
+      </S.FormRow>
+    </S.FormSection>
   )
 }
 

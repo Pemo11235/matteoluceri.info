@@ -95,7 +95,7 @@ const RightSection = styled(LeftSection)`
   }
 `
 
-const FormSection = styled(Container)`
+const FormSection = styled('form')`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -131,6 +131,7 @@ const TextField = styled(TextFieldBase)({
   width: '100%',
   '& label.Mui-focused': {
     color: '#80D8DA',
+    textTransform: 'uppercase',
   },
   '& label.MuiFormLabel-filled': {
     color: '#80D8DA',
