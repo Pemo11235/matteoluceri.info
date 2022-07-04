@@ -10,7 +10,8 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  min-width: 90vw;
+  min-width: 100vw;
+  overflow-x: hidden;
   font-family: 'Overpass Mono', monospace;
 
   -webkit-font-smoothing: antialiased;

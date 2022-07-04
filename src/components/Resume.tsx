@@ -1,9 +1,9 @@
 import { ArrowDownward, Favorite, QuestionMark } from '@mui/icons-material'
-import { Chip } from '@mui/material'
 import React from 'react'
 import * as S from './Resume.styled'
 import { Link } from './shared/Link'
 import { FadeTransition } from './shared/Transitions'
+import ResumePdf from '/files/CV_Matteo_Luceri.pdf'
 
 interface ResumeProps {
   resumeCopy: {
@@ -44,10 +44,7 @@ function Resume({
           <S.Title variant='h3' component='h1'>
             {title}
           </S.Title>
-          <Link
-            to={'/public/files/CV_Matteo_Luceri-1.pdf'}
-            target='_blank'
-            download>
+          <Link to={ResumePdf} target='_blank' download>
             <S.DownloadButton variant='contained'>
               Download PDF
               <ArrowDownward

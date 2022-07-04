@@ -181,7 +181,7 @@ export const getCopy = () => ({
         description:
           'FSO or Full Stack Open is the University of Helsinki’s free massive open online course (MOOC) on Web Development. This course introduce to React, Redux, Node.js, MongoDB, GraphQL ,TypeScript and React Native in one go! FSO leads to modern JavaScript-based web development. The main focus is on building single page applications with ReactJS that use REST APIs built with Node.js.The course is split up into 12 parts.Those present in the repo are my solutions to the exercises.',
         linkGithub: 'https://github.com/Pemo11235/FSO2021-Full-Stack-Open-2021',
-        imageSrc: '/public/images/certificate-fullstack.png',
+        imageSrc: '/images/certificate-fullstack.png',
       },
       {
         id: 'project_2',
@@ -190,7 +190,7 @@ export const getCopy = () => ({
           'Smart Grid (SG) technology transforms the traditional power network from a physical level into systems that comprise two levels side by side, the physical and the informative. Collecting, transferring and analyzing an enormous amount of data that can be acquired by different nodes in the network, together with the uncertainty caused by distributed power generators, challenges standard methods for safety and monitoring in future SGs.This thesis presents an effective dynamic solution for SG monitoring by combining concepts related to Compressive Sensing (CS) and Sparse Recovery (SR). Following a preliminary analysis of the stated concepts, a study is proposed to implement a SG model in MATLAB, with the aim to show and finally to compare some applications of CS - SR algorithmic techniques that are going to obtain effective problem solutions.',
         linkGithub:
           'https://github.com/Pemo11235/Bachelor-Thesis-Compressive-Sensing-in-Smart-Grids-monitoring-systems',
-        imageSrc: '/public/images/tesi.png',
+        imageSrc: '/images/tesi.png',
       },
       {
         id: 'project_3',
@@ -198,7 +198,7 @@ export const getCopy = () => ({
         description:
           'FSO or Full Stack Open is the University of Helsinki’s free massive open online course (MOOC) on Web Development. This course introduce to React, Redux, Node.js, MongoDB, GraphQL ,TypeScript and React Native in one go! FSO leads to modern JavaScript-based web development. The main focus is on building single page applications with ReactJS that use REST APIs built with Node.js.The course is split up into 12 parts.Those present in the repo are my solutions to the exercises.',
         linkGithub: 'https://github.com/Pemo11235/FSO2021-Full-Stack-Open-2021',
-        imageSrc: '/public/images/certificate-fullstack.png',
+        imageSrc: '/images/certificate-fullstack.png',
       },
     ],
   },
@@ -241,11 +241,11 @@ export const getCopy = () => ({
     },
   },
   assets: {
-    avatar: 'public/images/download.png',
+    avatar: '/images/download.png',
     coloredAvatars: [
-      'public/images/orange-avatar.png',
-      'public/images/red-avatar.png',
-      'public/images/cyan-avatar.png',
+      '/images/orange-avatar.png',
+      '/images/red-avatar.png',
+      '/images/cyan-avatar.png',
     ],
   },
 })
