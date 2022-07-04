@@ -37,8 +37,11 @@ type ContactForm = {
 type FormFieldProps = {
   placeholder: string
   required: boolean
-  label: 'name' | 'last name' | 'email' | 'message' | 'subject'
+  label: LabelType
 }
+
+export type LabelType = 'name' | 'last name' | 'email' | 'message' | 'subject'
+
 
 function Contact({
   contactCopy: {

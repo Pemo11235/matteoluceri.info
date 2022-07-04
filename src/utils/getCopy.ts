@@ -1,3 +1,4 @@
+import { LabelType } from './../components/Contact'
 export const getCopy = () => ({
   color: {
     orange: '#EEA302',
@@ -119,8 +120,32 @@ export const getCopy = () => ({
           },
           jobTitle: 'Hard Skills',
           company: '',
-          description:
-            'Javascript, Typescript, React, Next.js, React Native, Storybook, Chromatic, Redux, Cypress, Jest, StyledComponents, Webpack, Nodejs, Vim, Git, Mac, Linux, Windows, Latex, Android, Java, MATLAB',
+          description: [
+            'Javascript*',
+            'CSS*',
+            'HTML*',
+            'Typescript*',
+            'React*',
+            'Next.js',
+            'React Native',
+            'Storybook',
+            'Chromatic',
+            'Redux',
+            'Cypress',
+            'Jest',
+            'StyledComponents',
+            'Webpack',
+            'NodeJs',
+            'Vim',
+            'Git',
+            'MacOS',
+            'Linux',
+            'Windows',
+            'Latex',
+            'Android',
+            'Java',
+            'MATLAB',
+          ],
         },
         {
           period: {
@@ -129,8 +154,20 @@ export const getCopy = () => ({
           },
           jobTitle: 'Clifton Strength',
           company: '',
-          description:
-            'Intellection, Learner, Input, Restorative, Connectedness',
+          description: [
+            'Intellection?',
+            'Learner?',
+            'Input?',
+            'Restorative?',
+            'Connectedness?',
+          ],
+          tooltipDescription: [
+            'Introspective and appreciate intellectual discussions.',
+            'Desire to learn and want to continuously improve.',
+            'Need to collect and archive: information, ideas, artifacts or even relationship.',
+            'Adept at dealing with problems.Good at figuring out what is wrong and resolving it.',
+            'Faith in the links among all things: there are few coincidences almost every event has meaning.',
+          ],
         },
       ],
     },
@@ -176,27 +213,27 @@ export const getCopy = () => ({
       name: {
         placeholder: 'Insert your name',
         required: true,
-        label: 'name',
+        label: 'name' as LabelType,
       },
       lastName: {
         placeholder: 'Insert your last name',
         required: true,
-        label: 'last name',
+        label: 'last name' as LabelType,
       },
       email: {
         placeholder: 'Insert your e-mail',
         required: true,
-        label: 'email',
+        label: 'email' as LabelType,
       },
       message: {
         placeholder: 'Please insert a message',
         required: true,
-        label: 'message',
+        label: 'message' as LabelType,
       },
       subject: {
         placeholder: 'Insert the subject',
         required: true,
-        label: 'subject',
+        label: 'subject' as LabelType,
       },
       submit: 'Submit',
       success: 'Message sent successfully!',

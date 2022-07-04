@@ -1,11 +1,13 @@
 import {
   Box as BoxBase,
+  Chip as ChipBase,
   Typography,
   Container,
   Accordion,
   AccordionSummary,
   AccordionDetails,
   Button,
+  Tooltip as TooltipBase,
 } from '@mui/material'
 import styled from 'styled-components'
 
@@ -58,6 +60,7 @@ const RightSection = styled(LeftSection)`
   @media (max-width: 799px) {
     width: 100%;
     border-right: none;
+    margin: 0 0 1em 0;
   }
 `
 
@@ -218,6 +221,31 @@ const AccordionDescription = styled(Accordion)`
     display: none;
   }
 `
+const ListItem = styled('div')`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 0 10px 0;
+`
+
+const Chip = styled(ChipBase).attrs({
+  variant: 'outlined',
+})`
+  align-items: center;
+  :hover {
+    background-color: #eea302;
+    color: white;
+    transform: scale(1.2);
+    transition: all 0.2s ease-in-out;
+  }
+
+  @media (min-width: 0) and (max-width: 300px) {
+    transform: scale(0.8);
+  }
+`
+const Tooltip = styled(TooltipBase)``
 export {
   Box,
   Title,
@@ -238,4 +266,7 @@ export {
   AccordionSummaryTypo,
   AccordionSummaryStyled,
   AccordionDetailsStyled,
+  ListItem,
+  Chip,
+  Tooltip,
 }

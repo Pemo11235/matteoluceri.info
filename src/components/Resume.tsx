@@ -1,8 +1,10 @@
-import { ArrowDownward } from '@mui/icons-material'
+import { ArrowDownward, Favorite, QuestionMark } from '@mui/icons-material'
+import { Chip } from '@mui/material'
 import React from 'react'
 import * as S from './Resume.styled'
 import { Link } from './shared/Link'
 import { FadeTransition } from './shared/Transitions'
+
 interface ResumeProps {
   resumeCopy: {
     title: string
@@ -23,7 +25,8 @@ interface SectionItemProps {
   }
   jobTitle: string
   company: string
-  description: string
+  description: string | string[]
+  tooltipDescription?: string[]
 }
 function Resume({
   resumeCopy: {
@@ -115,13 +118,20 @@ function Resume({
         </FadeTransition>
         <S.RightSection>
           {sectionItems3.map(
-            ({ period: { start, end }, jobTitle, company, description }) => (
+            ({
+              period: { start, end },
+              jobTitle,
+              company,
+              description,
+              tooltipDescription,
+            }) => (
               <SectionItem
                 key={`section-${id}-${company}-${jobTitle}`}
                 period={{ start, end }}
                 jobTitle={jobTitle}
                 company={company}
                 description={description}
+                tooltipDescription={tooltipDescription}
               />
             )
           )}
@@ -136,6 +146,7 @@ const SectionItem = ({
   jobTitle,
   company,
   description,
+  tooltipDescription,
 }: SectionItemProps) => (
   <S.RightSectionItem>
     <FadeTransition>
@@ -155,9 +166,47 @@ const SectionItem = ({
         <S.Company variant='body1' component='h4'>
           {company}
         </S.Company>
-        <S.Description variant='body1' component='p'>
-          {description}
-        </S.Description>
+        {Array.isArray(description) ? (
+          <S.ListItem>
+            {description.map((chip, index) => (
+              <S.Tooltip
+                disableFocusListener
+                leaveTouchDelay={3000}
+                enterTouchDelay={0}
+                arrow
+                title={
+                  chip.endsWith('?') && tooltipDescription
+                    ? tooltipDescription[index]
+                    : ''
+                }
+                key={`${index}-${chip}`}>
+                <S.Chip
+                  label={
+                    chip.endsWith('*') || chip.endsWith('?')
+                      ? chip.slice(0, -1)
+                      : chip
+                  }
+                  key={index}
+                  icon={
+                    chip.endsWith('*') ? <Favorite fontSize='small' /> : <></>
+                  }
+                  onDelete={() => {}}
+                  deleteIcon={
+                    chip.endsWith('?') ? (
+                      <QuestionMark fontSize='small' />
+                    ) : (
+                      <></>
+                    )
+                  }
+                />
+              </S.Tooltip>
+            ))}
+          </S.ListItem>
+        ) : (
+          <S.Description variant='body1' component='p'>
+            {description}
+          </S.Description>
+        )}
       </S.SubSectionColumn>
     </FadeTransition>
   </S.RightSectionItem>
