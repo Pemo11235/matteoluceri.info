@@ -53,7 +53,7 @@ function Home({
 
   React.useEffect(() => {
     resetTimeout()
-    timeoutRef.current = setTimeout(cycleAvatar, 2000)
+    timeoutRef.current = window.setTimeout(cycleAvatar, 2000)
 
     return () => {
       resetTimeout()
