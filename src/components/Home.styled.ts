@@ -81,7 +81,7 @@ const AvatarStyled = styled(Avatar)`
     animation-name: fadeIn;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-    animation-duration: 3s;
+    animation-duration: 2s;
   }
 
   :hover {
@@ -91,7 +91,7 @@ const AvatarStyled = styled(Avatar)`
   @keyframes fadeIn {
     0%,
     100% {
-      opacity: 0;
+      opacity: 0.4;
     }
     30% {
       opacity: 1;
