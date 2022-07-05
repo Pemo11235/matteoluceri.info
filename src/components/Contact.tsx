@@ -1,5 +1,3 @@
-import { Badge } from '@mui/icons-material'
-import { InputAdornment, Box } from '@mui/material'
 import * as S from './Contact.styled'
 import { FadeTransition } from './shared/Transitions'
 import emailjs from 'emailjs-com'
@@ -7,12 +5,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css'
 
 import React from 'react'
-import {
-  Controller,
-  FieldValues,
-  SubmitHandler,
-  useForm,
-} from 'react-hook-form'
+import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 
 interface ContactProps {
   contactCopy: {
@@ -172,16 +165,7 @@ type SubmitValues = {
   subject: string
 }
 const ContactForm = ({
-  contactForm: {
-    name,
-    lastName,
-    email,
-    message,
-    submit,
-    success,
-    error,
-    subject,
-  },
+  contactForm: { name, lastName, email, message, submit, subject },
   onSubmit,
 }: ContactFormProps) => {
   const { handleSubmit, control, reset } = useForm<SubmitValues>()

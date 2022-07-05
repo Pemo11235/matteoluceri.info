@@ -1,4 +1,4 @@
-import { Fade, Toolbar, Zoom } from '@mui/material'
+import { Toolbar, Zoom } from '@mui/material'
 import ComputerIcon from '@mui/icons-material/ComputerOutlined'
 
 import * as S from './Header.styled'

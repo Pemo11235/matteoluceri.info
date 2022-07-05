@@ -4,7 +4,6 @@ import {
   Box as BoxBase,
   Divider as DividerBase,
   Typography,
-  IconButton as IconButtonBase,
   Button,
 } from '@mui/material'
 import { ArrowDropUp } from '@mui/icons-material'

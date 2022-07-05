@@ -1,7 +1,6 @@
 import { ArrowDownward, Favorite, QuestionMark } from '@mui/icons-material'
 import React from 'react'
 import * as S from './Resume.styled'
-import { Link } from './shared/Link'
 import { FadeTransition } from './shared/Transitions'
 
 interface ResumeProps {
@@ -47,6 +46,7 @@ function Resume({
             href={
               'https://drive.google.com/uc?export=download&id=1eXKP2plI2NtPgTMy4iUisOFywl0wIThc'
             }
+            rel='noopener noreferrer'
             target='_blank'
             download>
             <S.DownloadButton variant='contained'>

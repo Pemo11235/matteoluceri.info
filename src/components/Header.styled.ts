@@ -1,5 +1,4 @@
 import {
-  Box as BoxBase,
   AppBar as AppBarBase,
   Typography,
   Button,

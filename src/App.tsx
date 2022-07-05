@@ -1,5 +1,5 @@
 import { Header, Home, Footer, Resume, Projects, Contact } from './components'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { getCopy } from './utils/getCopy'
 import React from 'react'
 function App() {

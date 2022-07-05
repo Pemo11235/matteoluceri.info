@@ -1,8 +1,6 @@
 import GitHub from '@mui/icons-material/GitHub'
-import { Fade, Slide, Zoom } from '@mui/material'
 import React from 'react'
 import * as S from './Projects.styled'
-import { Link } from './shared/Link'
 import { FadeTransition } from './shared/Transitions'
 
 interface ProjectsProps {
@@ -40,7 +38,7 @@ type RowProps = {
   project: ProjectProps
 }
 const Project = ({
-  project: { id, projectTitle, description, linkGithub, imageSrc },
+  project: { projectTitle, description, linkGithub, imageSrc },
 }: RowProps) => {
   const onImageClick = (e: React.MouseEvent) => {
     e.preventDefault()

@@ -1,9 +1,7 @@
 import { Link } from './shared/Link'
 import * as S from './Home.styled'
 import React from 'react'
-import { FadeTransition } from './shared/Transitions'
 import { useOnLoadImages } from '../hooks/useOnLoadImages'
-import { Skeleton } from '@mui/material'
 
 interface HomeProps {
   homeButton: {
@@ -37,7 +35,6 @@ function Home({
     color: { orange, red, cyan },
   },
   homeCopy: { greeting, text },
-  avatar,
   coloredAvatars,
 }: HomeProps) {
   const [avatarIndex, setAvatarIndex] = React.useState(AVATAR_INDEX.orange)
