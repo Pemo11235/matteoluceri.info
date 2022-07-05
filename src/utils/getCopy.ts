@@ -194,17 +194,17 @@ export const getCopy = () => ({
       },
       {
         id: 'project_3',
-        projectTitle: 'matteoluceri.info - this Web-site',
+        projectTitle: 'matteoluceri.info',
         description:
           'Sounds very recursive! I started making this site a bit for fun and a bit to test my skills, using my site as a small laboratory to experiment. I refer to the Github page for more details!',
-        linkGithub: 'https://github.com/Pemo11235/FSO2021-Full-Stack-Open-2021',
+        linkGithub: 'https://github.com/Pemo11235/matteoluceri.info',
         imageSrc: '/images/matteoluceri.info.png',
       },
     ],
   },
   contactCopy: {
     title: 'Contact',
-    subtitle: 'Feel free to contact me anytime!',
+    subtitle: 'Feel free to contact me !',
     contactInfo: {
       email: 'matteoluceri@msn.com',
       phone: '+39 340 73 67 218',

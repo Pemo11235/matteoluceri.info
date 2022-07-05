@@ -3,6 +3,8 @@ import { InputAdornment, Box } from '@mui/material'
 import * as S from './Contact.styled'
 import { FadeTransition } from './shared/Transitions'
 import emailjs from 'emailjs-com'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.min.css'
 
 import React from 'react'
 import {
@@ -42,7 +44,6 @@ type FormFieldProps = {
 
 export type LabelType = 'name' | 'last name' | 'email' | 'message' | 'subject'
 
-
 function Contact({
   contactCopy: {
     title,
@@ -51,8 +52,50 @@ function Contact({
     contactForm,
   },
 }: ContactProps) {
+  const toastifySuccess = () => {
+    toast.success('Form sent!', {
+      position: 'top-center',
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+      className: 'submit-feedback success',
+      toastId: 'notifyToast',
+      style: {
+        zIndex: '9999',
+        marginTop: '4em',
+        backgroundColor: '#80D8DA',
+        color: 'white',
+        fontFamily: 'Overpass Mono',
+        fontSize: '1.2em',
+        fontWeight: 'bold',
+      },
+    })
+  }
+  const toastifyLoad = () => {
+    toast.info('Sending form . . .', {
+      position: 'top-center',
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+      toastId: 'notifyToast',
+      style: {
+        zIndex: '9999',
+        marginTop: '4em',
+        backgroundColor: '#80D8DA',
+        color: 'white',
+        fontFamily: 'Overpass Mono',
+        fontSize: '1.2em',
+        fontWeight: 'bold',
+      },
+    })
+  }
   const onSubmit: SubmitHandler<SubmitValues> = async (data) => {
     const { name, 'last name': lastName, email, subject, message } = data
+    toastifyLoad()
     try {
       const templateParams = {
         name: `${name} ${lastName}`,
@@ -66,6 +109,7 @@ function Contact({
         templateParams,
         import.meta.env.VITE_PUBLIC_KEY
       )
+      toastifySuccess()
     } catch (e) {
       console.log(e)
     }
@@ -107,6 +151,7 @@ function Contact({
             <S.RightSection>
               <ContactForm contactForm={contactForm} onSubmit={onSubmit} />
             </S.RightSection>
+            <ToastContainer />
           </S.ContentRow>
         </FadeTransition>
       </S.ContactSection>
@@ -139,9 +184,17 @@ const ContactForm = ({
   },
   onSubmit,
 }: ContactFormProps) => {
-  const { handleSubmit, control } = useForm<SubmitValues>()
+  const { handleSubmit, control, reset } = useForm<SubmitValues>()
+
+  const onSubmitHandler = async (
+    data: React.BaseSyntheticEvent<object, any, any> | undefined
+  ) => {
+    await handleSubmit(onSubmit)(data)
+    await reset()
+  }
+
   return (
-    <S.FormSection onSubmit={handleSubmit(onSubmit)}>
+    <S.FormSection onSubmit={onSubmitHandler}>
       <S.FormRow>
         <S.Form50Row>
           <Controller

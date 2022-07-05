@@ -59,7 +59,7 @@ const Box = styled(BoxBase)<ExtraBoxProps>`
   @media (min-width: 0px) and (max-width: 500px) {
     flex-direction: column;
     align-items: flex-start;
-    padding: 0 0 0 5%;
+    padding: 0 0 0 6%;
   }
 `
 type ColumnExtraType = {

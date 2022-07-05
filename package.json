@@ -18,7 +18,7 @@
     "react-dom": "^18.0.0",
     "react-hook-form": "^7.32.2",
     "react-router-dom": "^6.3.0",
-    "react-toastify": "^9.0.4"
+    "react-toastify": "^9.0.5"
   },
   "resolutions": {
     "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest"
