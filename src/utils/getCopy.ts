@@ -22,7 +22,7 @@ export const getCopy = () => ({
   },
   homeCopy: {
     greeting: 'Hello World!',
-    text: "My name is Matteo Luceri I'm a Front End Engineer based in Ravenna ☀️. I describe myself as a passionate developer who loves coding 💻  and creating things. I'm currently working as a Front-End Developer at Innoteam where I work as front-end consultant. I'm also graduate in Computer Science. 🎓",
+    text: "My name is Matteo Luceri 🤓 I'm a Front End Engineer based in Ravenna ☀️. I describe myself as a passionate developer who loves coding 💻  and creating things 🎨. I'm currently working as a Front-End Developer at Innoteam where I work as front-end consultant. I'm also graduate in Computer Science. 🎓",
   },
   footerCopy: {
     phone: '+39 340 73 67 218',
@@ -43,7 +43,7 @@ export const getCopy = () => ({
           jobTitle: 'Front-End Developer Consultant',
           company: 'Innoteam S.r.l.',
           description:
-            'FE consultant at the moment for a big Milan company. I’m supporting FE team to maintain, refactor and to re-brand the web-site after company acquisition.',
+            'FE consultant for a Milan company. I’m supporting FE team to maintain, refactor and to re-brand the web-site.',
         },
         {
           period: {
@@ -64,24 +64,6 @@ export const getCopy = () => ({
           company: 'Università degli Studi di Bari "Aldo Moro"',
           description:
             'I did my internship in the math department where I did a research and development about ”Compressive Sensing(CS) in Smart Grid (SG) monitoring systems”.',
-        },
-        {
-          period: {
-            start: '2015 ',
-            end: '2017',
-          },
-          jobTitle: 'Woodworking and renovation',
-          company: '',
-          description: '',
-        },
-        {
-          period: {
-            start: '2011 ',
-            end: '2015',
-          },
-          jobTitle: 'Waiter',
-          company: '',
-          description: '',
         },
       ],
     },

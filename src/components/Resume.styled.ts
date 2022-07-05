@@ -18,11 +18,6 @@ const Box = styled(BoxBase)`
   margin: 10% 0;
   overflow: hidden;
   align-items: center;
-  width: 90%;
-
-  @media (max-width: 500px) {
-    padding: 0 0 0 5%;
-  }
 `
 type ExtraProp = {
   component: string
@@ -30,7 +25,7 @@ type ExtraProp = {
 const Title = styled(Typography)<ExtraProp>`
   font-weight: 700;
   text-align: left;
-  width: 100%;
+  width: 50%;
 `
 const ResumeSection = styled(Container)`
   display: flex;
@@ -173,8 +168,13 @@ const TitleRow = styled(Container)`
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  margin: 0;
+  margin: 0 5%;
   padding: 0;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+    width: 100%;
+  }
 `
 
 const DownloadButton = styled(Button)`

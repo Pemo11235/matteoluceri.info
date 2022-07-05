@@ -60,7 +60,18 @@ const JobRoleTypography = styled(Typography)<ExtraProp>`
     content: '|';
   }
 
-  @media (min-width: 0px) and (max-width: 499px) {
+  @media (min-width: 0px) and (max-width: 369px) {
+    visibility: hidden;
+    margin-left: 2px;
+    :before {
+      visibility: visible;
+      content: '| ${(props) => props.$shortJobRole}';
+      font-size: 0.5em;
+      letter-spacing: -0.09em;
+    }
+  }
+
+  @media (min-width: 370px) and (max-width: 499px) {
     visibility: hidden;
     :before {
       visibility: visible;

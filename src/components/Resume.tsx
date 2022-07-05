@@ -48,6 +48,7 @@ function Resume({
             }
             rel='noopener noreferrer'
             target='_blank'
+            style={{ width: '30%' }}
             download>
             <S.DownloadButton variant='contained'>
               Download PDF
