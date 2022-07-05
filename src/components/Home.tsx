@@ -2,6 +2,8 @@ import { Link } from './shared/Link'
 import * as S from './Home.styled'
 import React from 'react'
 import { FadeTransition } from './shared/Transitions'
+import { useOnLoadImages } from '../hooks/useOnLoadImages'
+import { Skeleton } from '@mui/material'
 
 interface HomeProps {
   homeButton: {
@@ -40,6 +42,8 @@ function Home({
 }: HomeProps) {
   const [avatarIndex, setAvatarIndex] = React.useState(AVATAR_INDEX.orange)
   const timeoutRef = React.useRef<number>(0)
+  const wrapperRef = React.useRef<HTMLDivElement>(null)
+  const imagesLoaded = useOnLoadImages(wrapperRef)
 
   const cycleAvatar = React.useCallback(() => {
     setAvatarIndex((prev) => (prev + 1) % 3)
@@ -53,7 +57,7 @@ function Home({
 
   React.useEffect(() => {
     resetTimeout()
-    timeoutRef.current = window.setTimeout(cycleAvatar, 2000)
+    timeoutRef.current = window.setTimeout(cycleAvatar, 3000)
 
     return () => {
       resetTimeout()
@@ -62,11 +66,12 @@ function Home({
 
   return (
     <S.Container>
-      <S.ColumnLeft>
-        <S.AvatarStyled
-          src={coloredAvatars[avatarIndex]}
-          className={'fade-in'}
-        />
+      <S.ColumnLeft ref={wrapperRef}>
+        {!imagesLoaded ? (
+          <S.Skeleton variant='circular' animation='wave' />
+        ) : (
+          <S.AvatarStyled src={coloredAvatars[avatarIndex]} />
+        )}
       </S.ColumnLeft>
       <S.ColumnRight>
         <S.GreetingTypography variant='h3' component='h1' className='fade-in'>

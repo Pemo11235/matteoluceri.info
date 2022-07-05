@@ -3,7 +3,6 @@ import React from 'react'
 import * as S from './Resume.styled'
 import { Link } from './shared/Link'
 import { FadeTransition } from './shared/Transitions'
-import ResumePdf from '/files/CV_Matteo_Luceri.pdf'
 
 interface ResumeProps {
   resumeCopy: {
@@ -44,7 +43,12 @@ function Resume({
           <S.Title variant='h3' component='h1'>
             {title}
           </S.Title>
-          <Link to={ResumePdf} target='_blank' download>
+          <a
+            href={
+              'https://drive.google.com/uc?export=download&id=1eXKP2plI2NtPgTMy4iUisOFywl0wIThc'
+            }
+            target='_blank'
+            download>
             <S.DownloadButton variant='contained'>
               Download PDF
               <ArrowDownward
@@ -55,7 +59,7 @@ function Resume({
                 }}
               />
             </S.DownloadButton>
-          </Link>
+          </a>
         </S.TitleRow>
       </FadeTransition>
       <S.ResumeSection>

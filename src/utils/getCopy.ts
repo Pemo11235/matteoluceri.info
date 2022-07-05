@@ -194,11 +194,11 @@ export const getCopy = () => ({
       },
       {
         id: 'project_3',
-        projectTitle: 'Full Stack Open 2021-2022',
+        projectTitle: 'matteoluceri.info - this Web-site',
         description:
-          'FSO or Full Stack Open is the University of Helsinki’s free massive open online course (MOOC) on Web Development. This course introduce to React, Redux, Node.js, MongoDB, GraphQL ,TypeScript and React Native in one go! FSO leads to modern JavaScript-based web development. The main focus is on building single page applications with ReactJS that use REST APIs built with Node.js.The course is split up into 12 parts.Those present in the repo are my solutions to the exercises.',
+          'Sounds very recursive! I started making this site a bit for fun and a bit to test my skills, using my site as a small laboratory to experiment. I refer to the Github page for more details!',
         linkGithub: 'https://github.com/Pemo11235/FSO2021-Full-Stack-Open-2021',
-        imageSrc: '/images/certificate-fullstack.png',
+        imageSrc: '/images/matteoluceri.info.png',
       },
     ],
   },

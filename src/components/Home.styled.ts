@@ -4,6 +4,7 @@ import {
   styled,
   Typography,
   Button,
+  Skeleton as SkeletonBase,
 } from '@mui/material'
 
 const Container = styled(ContainerBase)`
@@ -77,11 +78,11 @@ const AvatarStyled = styled(Avatar)`
     transform: scale(1.05);
   }
   &.fade-in {
-    opacity: 1;
+    opacity: 0;
     animation-name: fadeIn;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-    animation-duration: 2s;
+    animation-duration: 3s;
   }
 
   :hover {
@@ -91,13 +92,34 @@ const AvatarStyled = styled(Avatar)`
   @keyframes fadeIn {
     0%,
     100% {
-      opacity: 0.4;
+      opacity: 0;
     }
     30% {
       opacity: 1;
     }
   }
 `
+const Skeleton = styled(SkeletonBase)`
+  min-width: 400px;
+  min-height: 400px;
+  margin-right: 2%;
+  transition: all 0.3s ease-in-out;
+
+  @media (min-width: 0px) and (max-width: 599px) {
+    margin-right: 0;
+    transform: scale(0.8);
+  }
+
+  @media (min-width: 600px) and (max-width: 799px) {
+    transform: scale(0.7);
+    margin-right: 0;
+  }
+
+  @media (min-width: 800px) {
+    transform: scale(1.05);
+  }
+`
+
 type ExtraProp = {
   component: string
 }
@@ -229,4 +251,5 @@ export {
   TextTypography,
   Row,
   ButtonCircle,
+  Skeleton,
 }
