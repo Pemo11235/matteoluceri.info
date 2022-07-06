@@ -67,7 +67,10 @@ function Home({
         {!imagesLoaded ? (
           <S.Skeleton variant='circular' animation='wave' />
         ) : (
-          <S.AvatarStyled src={coloredAvatars[avatarIndex]} />
+          <S.AvatarStyled
+            imgProps={{ loading: 'lazy' }}
+            src={coloredAvatars[avatarIndex]}
+          />
         )}
       </S.ColumnLeft>
       <S.ColumnRight>
