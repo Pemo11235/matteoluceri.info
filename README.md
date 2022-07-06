@@ -2,6 +2,8 @@
 
 I started making this site a bit for fun and a bit to test my skills, using my site as a small laboratory to experiment.
 
+![screenshot](public/images/matteoluceri.info.png)
+
 Some bullets :
 
 - VIteJs
