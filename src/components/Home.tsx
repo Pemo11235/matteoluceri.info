@@ -1,7 +1,7 @@
-import { Link } from './shared/Link'
-import * as S from './Home.styled'
 import React from 'react'
 import { useOnLoadImages } from '../hooks/useOnLoadImages'
+import * as S from './Home.styled'
+import { Link } from './shared/Link'
 
 interface HomeProps {
   homeButton: {
@@ -17,6 +17,7 @@ interface HomeProps {
   homeCopy: {
     greeting: string
     text: string
+    text_b: string
   }
   avatar: string
   coloredAvatars: string[]
@@ -34,17 +35,13 @@ function Home({
     button3,
     color: { orange, red, cyan },
   },
-  homeCopy: { greeting, text },
+  homeCopy: { greeting, text, text_b },
   coloredAvatars,
 }: HomeProps) {
   const [avatarIndex, setAvatarIndex] = React.useState(AVATAR_INDEX.orange)
   const timeoutRef = React.useRef<number>(0)
   const wrapperRef = React.useRef<HTMLDivElement>(null)
   const imagesLoaded = useOnLoadImages(wrapperRef)
-
-  const cycleAvatar = React.useCallback(() => {
-    setAvatarIndex((prev) => (prev + 1) % 3)
-  }, [avatarIndex])
 
   function resetTimeout() {
     if (timeoutRef.current) {
@@ -54,8 +51,14 @@ function Home({
 
   React.useEffect(() => {
     resetTimeout()
-    timeoutRef.current = window.setTimeout(cycleAvatar, 3000)
-
+    timeoutRef.current = setTimeout(() => {
+      setAvatarIndex((prevAvatarIndex) => {
+        if (prevAvatarIndex === AVATAR_INDEX.cyan) {
+          return AVATAR_INDEX.orange
+        }
+        return prevAvatarIndex + 1
+      })
+    }, 2000)
     return () => {
       resetTimeout()
     }
@@ -65,20 +68,48 @@ function Home({
     <S.Container>
       <S.ColumnLeft ref={wrapperRef}>
         {!imagesLoaded ? (
-          <S.Skeleton variant='circular' animation='wave' />
-        ) : (
-          <S.AvatarStyled
-            imgProps={{ loading: 'lazy' }}
-            src={coloredAvatars[avatarIndex]}
+          <S.Skeleton
+            variant='circular'
+            animation='wave'
           />
+        ) : (
+          <S.SlideshowContainer>
+            <S.SlideshowSlider
+              style={{ transform: `translate3d(calc(${-avatarIndex * 100}%), 0 ,0)` }}
+            >
+              {coloredAvatars.map((coloredAvatar, index) => (
+                <S.AvatarStyled
+                  key={index}
+                  className={'slide fade'}
+                  imgProps={{ loading: 'lazy' }}
+                  src={coloredAvatar}
+                />
+              ))}
+            </S.SlideshowSlider>
+          </S.SlideshowContainer>
         )}
       </S.ColumnLeft>
       <S.ColumnRight>
-        <S.GreetingTypography variant='h3' component='h1' className='fade-in'>
+        <S.GreetingTypography
+          variant='h3'
+          component='h1'
+          className='fade-in'
+        >
           {greeting}
         </S.GreetingTypography>
-        <S.TextTypography variant='body1' component='h2' className='fade-in'>
+        <S.TextTypography
+          variant='body1'
+          component='p'
+          className='fade-in'
+        >
           {text}
+        </S.TextTypography>
+        <S.TextTypography
+          variant='body1'
+          component='p'
+          className='fade-in'
+        >
+          {text_b}
         </S.TextTypography>
         <S.Row>
           <Link to={`/${button1}`}>
@@ -86,7 +117,8 @@ function Home({
               variant='contained'
               sx={{ backgroundColor: orange }}
               className='fade-in'
-              $animationDuration={2}>
+              $animationDuration={2}
+            >
               {button1}
             </S.ButtonCircle>
           </Link>
@@ -95,7 +127,8 @@ function Home({
               variant='contained'
               sx={{ backgroundColor: red }}
               className='fade-in'
-              $animationDuration={2.5}>
+              $animationDuration={2.5}
+            >
               {button2}
             </S.ButtonCircle>
           </Link>
@@ -104,7 +137,8 @@ function Home({
               variant='contained'
               sx={{ backgroundColor: cyan }}
               className='fade-in'
-              $animationDuration={3}>
+              $animationDuration={3}
+            >
               {button3}
             </S.ButtonCircle>
           </Link>
@@ -113,5 +147,4 @@ function Home({
     </S.Container>
   )
 }
-
 export { Home }

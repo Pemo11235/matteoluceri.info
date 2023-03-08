@@ -22,7 +22,9 @@ export const getCopy = () => ({
   },
   homeCopy: {
     greeting: 'Hello World!',
-    text: "My name is Matteo Luceri 🤓 I'm a Front End Engineer based in Ravenna ☀️. I describe myself as a passionate developer who loves coding 💻  and creating things 🎨. I'm currently working as a Front-End Developer at Innoteam where I work as front-end consultant. I'm also graduate in Computer Science. 🎓",
+    text: 'I\'m Matteo and I am a front-end developer with 3 years of experience under my belt. I am a Javascript pro and have a solid background in front-end development. I have worked on several projects and technologies, such as Next.js, Node.js, and React Native; and I support the "javascript everywhere" philosophy. On top of that, I am a huge music lover, especially when it comes to playing guitar and writing songs. ',
+    text_b:
+      'My mission? To make the world a more beautiful place, one pixel - or one note - at a time !',
   },
   footerCopy: {
     phone: '+39 340 73 67 218',
@@ -37,13 +39,23 @@ export const getCopy = () => ({
       items: [
         {
           period: {
-            start: 'November 2021',
+            start: 'October 2022',
             end: 'Present',
           },
-          jobTitle: 'Front-End Developer Consultant',
-          company: 'Innoteam S.r.l.',
+          jobTitle: 'Front-End Developer ',
+          company: 'Caffeina | Ideas Never Sleep',
           description:
-            'FE consultant for a Milan company. I’m supporting FE team to maintain, refactor and to re-brand the web-site.',
+            'I had opportunity to work on a unique and exciting project for client Merck. I developed a web application that translates brain impulses collected with an EEG helmet into artistic representations. I used vanilla Javascript, HTML, CSS, Browserify, and especially HTML Canvas to generate the artwork. In addition, I created a mosaic containing all the generated "synaptic portraits." I had the opportunity to install, present and manage the activity during the event, receiving positive feedback for both the technical aspect and my communication skills.',
+        },
+        {
+          period: {
+            start: 'November 2021',
+            end: 'October 2022',
+          },
+          jobTitle: 'Front-End Developer Consultant',
+          company: 'Axelerant',
+          description:
+            'At Axelerant (formerly Innoteam), I worked as a front-end consultant for BrumBrum, a major client, where I supported the front-end team in developing new features and maintaining websites.',
         },
         {
           period: {
@@ -51,7 +63,7 @@ export const getCopy = () => ({
             end: 'November 2021',
           },
           jobTitle: 'App/Front-End Developer',
-          company: 'I-tel S.r.l.',
+          company: 'I-tel',
           description:
             'Development of native app in Android. Development of cross-platform mobile applications in React Native.',
         },

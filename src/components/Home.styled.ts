@@ -1,10 +1,10 @@
 import {
   Avatar,
-  Container as ContainerBase,
-  styled,
-  Typography,
   Button,
+  Container as ContainerBase,
   Skeleton as SkeletonBase,
+  styled,
+  Typography
 } from '@mui/material'
 
 const Container = styled(ContainerBase)`
@@ -58,10 +58,40 @@ const ColumnRight = styled(Column)`
   }
 `
 
+const SlideshowContainer = styled('div')`
+  width: 400px;
+  height: 400px;
+  aspect-ratio: 1/1;
+  vertical-align: middle;
+  overflow: hidden;
+  margin: 0;
+
+  @media (min-width: 0px) and (max-width: 599px) {
+    margin-right: 0;
+    transform: scale(0.8);
+  }
+
+  @media (min-width: 600px) and (max-width: 799px) {
+    transform: scale(0.7);
+    margin-right: 0;
+  }
+
+  @media (min-width: 800px) {
+    transform: scale(1.00);
+  }
+
+`
+const SlideshowSlider = styled('div')`
+  white-space: nowrap;
+  transition: ease 1000ms;
+  `
+
 const AvatarStyled = styled(Avatar)`
-  min-width: 400px;
-  min-height: 400px;
-  margin-right: 2%;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 400px;
+  height: 400px;
   transition: all 0.3s ease-in-out;
 
   @media (min-width: 0px) and (max-width: 599px) {
@@ -75,28 +105,25 @@ const AvatarStyled = styled(Avatar)`
   }
 
   @media (min-width: 800px) {
-    transform: scale(1.05);
+    transform: scale(1.00);
   }
-  &.fade-in {
-    opacity: 0;
-    animation-name: fadeIn;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    animation-duration: 3s;
+
+  &.fade {
+    animation-name: fade;
+    animation-duration: .5s;
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   :hover {
     cursor: pointer;
-  }
-
-  @keyframes fadeIn {
-    0%,
-    100% {
-      opacity: 0;
-    }
-    30% {
-      opacity: 1;
-    }
   }
 `
 const Skeleton = styled(SkeletonBase)`
@@ -241,7 +268,6 @@ const ButtonCircle = styled(Button)<ExtraButtonProps>`
     }
   }
 `
-
 export {
   Container,
   ColumnLeft,
@@ -252,4 +278,6 @@ export {
   Row,
   ButtonCircle,
   Skeleton,
+  SlideshowContainer,
+  SlideshowSlider,
 }
