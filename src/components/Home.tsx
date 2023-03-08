@@ -39,7 +39,7 @@ function Home({
   coloredAvatars,
 }: HomeProps) {
   const [avatarIndex, setAvatarIndex] = React.useState(AVATAR_INDEX.orange)
-  const timeoutRef = React.useRef<number>(0)
+  const timeoutRef = React.useRef<any>(0)
   const wrapperRef = React.useRef<HTMLDivElement>(null)
   const imagesLoaded = useOnLoadImages(wrapperRef)
 
@@ -81,7 +81,6 @@ function Home({
                 <S.AvatarStyled
                   key={index}
                   className={'slide fade'}
-                  imgProps={{ loading: 'lazy' }}
                   src={coloredAvatar}
                 />
               ))}
