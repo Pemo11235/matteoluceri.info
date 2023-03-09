@@ -1,13 +1,5 @@
 import {
-  Box as BoxBase,
-  Chip as ChipBase,
-  Typography,
-  Container,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  Button,
-  Tooltip as TooltipBase,
+  Accordion, AccordionDetails, AccordionSummary, Box as BoxBase, Button, Chip as ChipBase, Container, Tooltip as TooltipBase, Typography
 } from '@mui/material'
 import styled from 'styled-components'
 
@@ -171,24 +163,38 @@ const TitleRow = styled(Container)`
   margin: 0 5%;
   padding: 0;
 
+  a {
+    text-decoration: none;
+  }
+
   @media (max-width: 500px) {
     flex-direction: column;
     width: 100%;
+    justify-content: flex-start;
   }
 `
 
 const DownloadButton = styled(Button)`
-  color: #232323;
-  padding: 5px 10px 0 10px;
+  color: #F5F5F5;
+  text-decoration: none;
+  padding: 20px;
   background-color: #eea302;
   border-radius: 20px;
-  border: 1px solid #232323;
+  border: 1px solid #F5f5f5;
   font-weight: 700;
-  font-size: 0.7rem;
-  width: max-content;
+  font-size: 1rem;
+  width: 50%;
+  min-width: 200px;
+  float: right;
 
   &:hover {
     background-color: white;
+    color: #eea302;
+  }
+  @media (max-width: 500px) {
+    width: auto;
+    float: none;
+    padding: 10px;
   }
 `
 

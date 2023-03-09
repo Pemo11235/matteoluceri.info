@@ -39,17 +39,21 @@ function Resume({
     <S.Box>
       <FadeTransition>
         <S.TitleRow>
-          <S.Title variant='h3' component='h1'>
+          <S.Title
+            variant='h3'
+            component='h1'
+          >
             {title}
           </S.Title>
           <a
             href={
-              'https://drive.google.com/uc?export=download&id=1eXKP2plI2NtPgTMy4iUisOFywl0wIThc'
+              'https://drive.google.com/file/d/1Ss_xerYFLF9Igh0LZU8ipTIOffz2014H/view?usp=share_link'
             }
             rel='noopener noreferrer'
             target='_blank'
             style={{ width: '30%' }}
-            download>
+            download
+          >
             <S.DownloadButton variant='contained'>
               Download PDF
               <ArrowDownward
@@ -66,7 +70,10 @@ function Resume({
       <S.ResumeSection>
         <FadeTransition>
           <S.LeftSection>
-            <S.SectionTitle variant='h5' component='h2'>
+            <S.SectionTitle
+              variant='h5'
+              component='h2'
+            >
               {sectionTitle}
             </S.SectionTitle>
           </S.LeftSection>
@@ -75,7 +82,7 @@ function Resume({
           {sectionItems.map(
             (
               { period: { start, end }, jobTitle, company, description },
-              index
+              index,
             ) => (
               <SectionItem
                 key={`section-${id}-${index}-${jobTitle}`}
@@ -84,14 +91,17 @@ function Resume({
                 company={company}
                 description={description}
               />
-            )
+            ),
           )}
         </S.RightSection>
       </S.ResumeSection>
       <S.ResumeSection>
         <FadeTransition>
           <S.LeftSection>
-            <S.SectionTitle variant='h5' component='h2'>
+            <S.SectionTitle
+              variant='h5'
+              component='h2'
+            >
               {sectionTitle2}
             </S.SectionTitle>
           </S.LeftSection>
@@ -106,14 +116,17 @@ function Resume({
                 company={company}
                 description={description}
               />
-            )
+            ),
           )}
         </S.RightSection>
       </S.ResumeSection>
       <S.ResumeSection>
         <FadeTransition>
           <S.LeftSection>
-            <S.SectionTitle variant='h5' component='h2'>
+            <S.SectionTitle
+              variant='h5'
+              component='h2'
+            >
               {sectionTitle3}
             </S.SectionTitle>
           </S.LeftSection>
@@ -135,7 +148,7 @@ function Resume({
                 description={description}
                 tooltipDescription={tooltipDescription}
               />
-            )
+            ),
           )}
         </S.RightSection>
       </S.ResumeSection>
@@ -153,7 +166,10 @@ const SectionItem = ({
   <S.RightSectionItem>
     <FadeTransition>
       <S.SubSectionRow>
-        <S.Period variant='body1' component='div'>
+        <S.Period
+          variant='body1'
+          component='div'
+        >
           {period.start} {period.start !== '' ? '-' : '‣'}
           {period.start.length > 5 ? <br /> : '  '}
           {period.end}
@@ -162,10 +178,16 @@ const SectionItem = ({
     </FadeTransition>
     <FadeTransition>
       <S.SubSectionColumn>
-        <S.InfoTitle variant='body1' component='h3'>
+        <S.InfoTitle
+          variant='body1'
+          component='h3'
+        >
           {jobTitle}
         </S.InfoTitle>
-        <S.Company variant='body1' component='h4'>
+        <S.Company
+          variant='body1'
+          component='h4'
+        >
           {company}
         </S.Company>
         {Array.isArray(description) ? (
@@ -181,7 +203,8 @@ const SectionItem = ({
                     ? tooltipDescription[index]
                     : ''
                 }
-                key={`${index}-${chip}`}>
+                key={`${index}-${chip}`}
+              >
                 <S.Chip
                   label={
                     chip.endsWith('*') || chip.endsWith('?')
@@ -205,7 +228,10 @@ const SectionItem = ({
             ))}
           </S.ListItem>
         ) : (
-          <S.Description variant='body1' component='p'>
+          <S.Description
+            variant='body1'
+            component='p'
+          >
             {description}
           </S.Description>
         )}
